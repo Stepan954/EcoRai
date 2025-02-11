@@ -231,50 +231,16 @@
             background-color: #28d88c;
         }
         /* Медиазапросы */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2rem;
-    }
+        @media (max-width: 768px) {
+            nav {
+                padding: 10px 0; /* Уменьшаем отступы */
+            }
 
-    nav {
-        flex-direction: column;
-        padding: 10px 0;
-    }
-
-    nav a {
-        padding: 10px;
-        margin: 5px 0;
-    }
-
-    .container {
-        padding: 10px;
-    }
-
-    .services, .faq, .reviews, .nash_garant {
-        padding: 10px;
-    }
-
-    .services img {
-        max-width: 100%;
-    }
-
-    #orderForm, #orderFormBottom {
-        max-width: 100%;
-    }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-    header h1 {
-        font-size: 2.5rem;
-    }
-
-    nav a {
-        padding: 15px 20px;
-    }
-
-    .container {
-        padding: 15px;
-    }
+            nav a {
+                padding: 10px 15px; /* Уменьшаем отступы для ссылок */
+                font-size: 1em; /* Уменьшаем размер шрифта */
+                margin: 0 5px; /* Уменьшаем отступы между ссылками */
+            }
 }
     </style>
 </head>
