@@ -43,7 +43,6 @@
             z-index: 2;
             font-size: 3em;
             margin: 0;
-            
         }
 
         nav {
@@ -157,8 +156,8 @@
         }
 
         button {
-            background-color: #03752f;
-            color: white;
+            background-color: #47cf82;
+            color: rgb(8, 8, 8);
             border: none;
             padding: 15px 30px;
             font-size: 1rem;
@@ -170,10 +169,10 @@
         }
 
         button:hover {
-            background-color: #05ad78;
+            background-color: #3caa43;
         }
 
-        #orderForm {
+        #orderForm, #orderFormBottom {
             display: none;
             background: rgb(196, 191, 199);
             padding: 20px;
@@ -183,7 +182,29 @@
             margin: 20px auto;
         }
 
+        /* Изменения для верхней формы */
         #orderForm input, #orderForm select {
+            width: 100%;
+            padding: 5px;
+            margin: 5px 0;
+            border: 1px solid #ccc; /* Серая рамка */
+            border-radius: 5px;
+            background-color: white; /* Белый фон */
+        }
+
+        #orderForm input[type="submit"] {
+            background-color: #4CAF50;
+            color: rgb(2, 11, 5);
+            border: none;
+            cursor: pointer;
+        }
+
+        #orderForm input[type="submit"]:hover {
+            background-color: #28d88c;
+        }
+
+        /* Стили для нижней формы (оставляем как есть) */
+        #orderFormBottom input, #orderFormBottom select {
             width: 100%;
             padding: 5px;
             margin: 5px 0;
@@ -191,14 +212,14 @@
             border-radius: 5px;
         }
 
-        #orderForm input[type="submit"] {
+        #orderFormBottom input[type="submit"] {
             background-color: #4CAF50;
-            color: rgb(5, 3, 3);
+            color: rgb(2, 11, 5);
             border: none;
             cursor: pointer;
         }
 
-        #orderForm input[type="submit"]:hover {
+        #orderFormBottom input[type="submit"]:hover {
             background-color: #28d88c;
         }
     </style>
@@ -214,7 +235,7 @@
     <a href="o_nac.html">О нас</a>
     <a href="contacts.html">Контакты</a>
 </nav>
-<button onclick="toggleOrderForm()">Заказать услугу</button>
+<button onclick="toggleOrderForm('orderForm')">Заказать услугу</button>
 <div id="orderForm">
     <form>
         <label for="name">Имя:</label>
@@ -266,15 +287,15 @@
         <p>Мы понимаем, что вы принимаете работы поздно вечером и впопыхах. Поэтому теперь у Вас есть сутки после уборки квартиры или коттеджа, чтобы все тщательно проверить! Маловероятно, но если вдруг случится так, что вы нашли какие-то недоделки на следующий день после уборки - просто позвоните нам, и мы приедем и бесплатно все исправим.</p>
     </section>
 
-    <button onclick="toggleOrderForm()">Заказать услугу</button>
-    <div id="orderForm">
+    <button onclick="toggleOrderForm('orderFormBottom')">Заказать услугу</button>
+    <div id="orderFormBottom">
         <form>
-            <label for="name">Имя:</label>
-            <input type="text" id="name" name="name" required><br>
-            <label for="phone">Телефон:</label>
-            <input type="text" id="phone" name="phone" required><br>
-            <label for="service">Услуга:</label>
-            <select id="service" name="service" required>
+            <label for="nameBottom">Имя:</label>
+            <input type="text" id="nameBottom" name="name" required><br>
+            <label for="phoneBottom">Телефон:</label>
+            <input type="text" id="phoneBottom" name="phone" required><br>
+            <label for="serviceBottom">Услуга:</label>
+            <select id="serviceBottom" name="service" required>
                 <option value="general">Уборка офисов</option>
                 <option value="daily">Уборка территории</option>
                 <option value="carpet">Высотно-промышленный клининг</option>
@@ -291,8 +312,8 @@
 </footer>
 
 <script>
-    function toggleOrderForm() {
-        const orderForm = document.getElementById('orderForm');
+    function toggleOrderForm(formId) {
+        const orderForm = document.getElementById(formId);
         if (orderForm.style.display === 'block') {
             orderForm.style.display = 'none'; // Закрыть форму
         } else {

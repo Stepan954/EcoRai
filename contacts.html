@@ -130,8 +130,8 @@
         }
 
         button {
-            background-color: #03752f;
-            color: white;
+            background-color: #47cf82;
+            color: rgb(8, 8, 8);
             border: none;
             padding: 15px 30px;
             font-size: 1rem;
@@ -143,10 +143,10 @@
         }
 
         button:hover {
-            background-color: #18c476;
+            background-color: #3caa43;
         }
 
-        #orderForm {
+        #orderForm, #orderFormBottom {
             display: none;
             background: rgb(196, 191, 199);
             padding: 20px;
@@ -156,17 +156,19 @@
             margin: 20px auto;
         }
 
+        /* Изменения для верхней формы */
         #orderForm input, #orderForm select {
             width: 100%;
             padding: 5px;
             margin: 5px 0;
-            border: 3px solid #03844c;
+            border: 1px solid #ccc; /* Серая рамка */
             border-radius: 5px;
+            background-color: white; /* Белый фон */
         }
 
         #orderForm input[type="submit"] {
             background-color: #4CAF50;
-            color: white;
+            color: rgb(2, 11, 5);
             border: none;
             cursor: pointer;
         }
@@ -175,33 +177,24 @@
             background-color: #28d88c;
         }
 
-        .contact-info {
-            margin-top: 20px;
+        /* Стили для нижней формы (оставляем как есть) */
+        #orderFormBottom input, #orderFormBottom select {
+            width: 100%;
+            padding: 5px;
+            margin: 5px 0;
+            border: 3px solid #03844c;
+            border-radius: 5px;
         }
 
-        .contact-info a {
-            text-decoration: none;
-            color: #0077b6;
-            margin: 0 10px;
+        #orderFormBottom input[type="submit"] {
+            background-color: #4CAF50;
+            color: rgb(2, 11, 5);
+            border: none;
+            cursor: pointer;
         }
 
-        .contact-info img {
-            vertical-align: middle;
-            width: 100px; /* Размер иконок 100x100 пикселей */
-            height: 100px; /* Размер иконок 100x100 пикселей */
-            margin-right: 8px; /* Отступ между иконкой и текстом */
-        }
-
-        .map {
-            margin-top: 20px;
-            text-align: center; /* Центрирование карты */
-        }
-
-        .map iframe {
-            width: 100%; /* Карта занимает всю ширину контейнера */
-            height: 500px; /* Увеличенная высота карты */
-            border: 0;
-            border-radius: 10px;
+        #orderFormBottom input[type="submit"]:hover {
+            background-color: #28d88c;
         }
     </style>
 </head>
@@ -216,7 +209,7 @@
     <a href="nash_uslugi.html">Услуги</a>
     <a href="o_nac.html">О нас</a>
 </nav>
-<button onclick="toggleOrderForm()">Заказать услугу</button>
+<button onclick="toggleOrderForm('orderForm')">Заказать услугу</button>
 <div id="orderForm">
     <form>
         <label for="name">Имя:</label>
@@ -262,44 +255,47 @@
     </div>
 </div>
 
-<button onclick="toggleOrderForm()">Заказать услугу</button>
-<div id="orderForm">
-    <form>
-        <label for="name">Имя:</label>
-        <input type="text" id="name" name="name" required><br>
-        <label for="phone">Телефон:</label>
-        <input type="text" id="phone" name="phone" required><br>
-        <label for="service">Услуга:</label>
-        <select id="service" name="service" required>
-            <option value="general">Уборка офисов</option>
-            <option value="daily">Уборка территории</option>
-            <option value="carpet">Высотно-промышленный клининг</option>
-            <option value="window">Спецуборка после ремонта или ЧП</option>
-            <option value="window">Уборка территории</option>
-        </select><br>
-        <input type="submit" value="Отправить">
-    </form>
-</div>
+<button onclick="toggleOrderForm('orderFormBottom')">Заказать услугу</button>
+        <div id="orderFormBottom">
+            <form>
+                <label for="nameBottom">Имя:</label>
+                <input type="text" id="nameBottom" name="name" required><br>
+                <label for="phoneBottom">Телефон:</label>
+                <input type="text" id="phoneBottom" name="phone" required><br>
+                <label for="serviceBottom">Услуга:</label>
+                <select id="serviceBottom" name="service" required>
+                    <option value="general">Уборка офисов</option>
+                    <option value="daily">Уборка территории</option>
+                    <option value="carpet">Высотно-промышленный клининг</option>
+                    <option value="window">Спецуборка после ремонта или ЧП</option>
+                    <option value="window">Уборка территории</option>
+                </select><br>
+                <input type="submit" value="Отправить">
+            </form>
+        </div>
+    </div>
 
-<script>
-    function toggleOrderForm() {
-        const orderForm = document.getElementById('orderForm');
-        if (orderForm.style.display === 'block') {
-            orderForm.style.display = 'none'; // Закрыть форму
-        } else {
-            orderForm.style.display = 'block'; // Открыть форму
+    <footer>
+        <p>&copy; 2025 Клининговое агентство "EcoRai". Все права защищены.</p>
+    </footer>
+
+    <script>
+        function toggleOrderForm(formId) {
+            const orderForm = document.getElementById(formId);
+            if (orderForm.style.display === 'block') {
+                orderForm.style.display = 'none'; // Закрыть форму
+            } else {
+                orderForm.style.display = 'block'; // Открыть форму
+            }
         }
-    }
 
-    function toggleAnswer(id) {
-        const answer = document.getElementById(`answer${id}`);
-        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
-    }
-</script>
+        function toggleAnswer(id) {
+            const answer = document.getElementById(`answer${id}`);
+            answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
 
-<footer>
-    <p>&copy; 2025 Клининговое агентство "EcoRai". Все права защищены.</p>
-</footer>
+
 
 </body>
 </html>
