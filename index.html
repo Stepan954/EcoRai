@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Основные стили */
+        body {
+            font-family: 'Verdana', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('images/просто крутые/photo_4_2025-02-04_21-04-49.jpg');
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        header {
+            color: rgb(239, 238, 242);
+            padding: 60px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(228, 4, 45, 0.1);
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(5, 2, 2, 0.7); /* Тень для текста */
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/просто крутые/photo_17_2025-02-04_21-04-49.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.5;
+            z-index: 1;
+        }
+
+        header h1 {
+            position: relative;
+            z-index: 2;
+            font-size: 3em;
+            margin: 0;
+            
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #1b7744;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: white;
+            padding: 20px 30px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            font-size: 1.2em;
+            margin: 0 15px;
+        }
+
+        nav a:hover {
+            background-color: #1ab96f;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services, .faq, .reviews, .nash_garant {
+            margin-bottom: 40px;
+            background: rgb(237, 239, 237);
+            padding: 20px;
+            border-radius: 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .services h2, .faq h2, .reviews h2, .nash_garant h2 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .services p {
+            text-align: justify;
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .services img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .services .image-container {
+            display: flex;
+            justify-content: center; /* Центрирование изображения */
+        }
+
+        .faq .question {
+            background: #f1f1f1;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq .question:hover {
+            background: #4fbc7b;
+        }
+
+        .faq .answer {
+            display: none;
+            padding: 10px;
+            background: #7ab8a1;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .reviews p {
+            background: #e9e9ec;
+            padding: 15px;
+            text-align: left;
+            border-left: 5px solid #12b7a4;
+            font-style: italic;
+            margin: 10px 0;
+        }
+
+        .nash_garant p {
+            text-align: justify;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        footer {
+            background-color: #1b7744;
+            color: rgb(9, 8, 8);
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        button {
+            background-color: #03752f;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            display: block;
+            margin: 20px auto;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #05ad78;
+        }
+
+        #orderForm {
+            display: none;
+            background: rgb(196, 191, 199);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        #orderForm input, #orderForm select {
+            width: 100%;
+            padding: 5px;
+            margin: 5px 0;
+            border: 3px solid #03844c;
+            border-radius: 5px;
+        }
+
+        #orderForm input[type="submit"] {
+            background-color: #4CAF50;
+            color: rgb(5, 3, 3);
+            border: none;
+            cursor: pointer;
+        }
+
+        #orderForm input[type="submit"]:hover {
+            background-color: #28d88c;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Клининговое агентство "EcoRai"</h1>
+</header>
+
+<nav>
+    <a href="nash_uslugi.html">Услуги</a>
+    <a href="o_nac.html">О нас</a>
+    <a href="contacts.html">Контакты</a>
+</nav>
+<button onclick="toggleOrderForm()">Заказать услугу</button>
+<div id="orderForm">
+    <form>
+        <label for="name">Имя:</label>
+        <input type="text" id="name" name="name" required><br>
+        <label for="phone">Телефон:</label>
+        <input type="text" id="phone" name="phone" required><br>
+        <label for="service">Услуга:</label>
+        <select id="service" name="service" required>
+            <option value="general">Уборка офисов</option>
+            <option value="daily">Уборка территории</option>
+            <option value="carpet">Высотно-промышленный клининг</option>
+            <option value="window">Спецуборка после ремонта или ЧП</option>
+            <option value="window">Уборка территории</option>
+        </select><br>
+        <input type="submit" value="Отправить">
+    </form>
+</div>
+<div class="container">
+    <section id="services" class="services">
+        <h2>Мы рады приветствовать вас на нашем сайте!</h2>
+        <p>Если вы ищете надежного помощника в создании чистоты и уюта в вашем доме или офисе, то вы обратились по адресу. Наша команда профессионалов готова взять на себя все заботы, связанные с уборкой, чтобы вы могли наслаждаться свободным временем, проводить его с близкими или сосредоточиться на важных делах.</p>
+        <div class="image-container">
+            <img src="images/главная/photo_2025-02-04_22-14-56.jpg" alt="Генеральная уборка дома">
+        </div>
+    </section>
+
+    <section id="faq" class="faq">
+        <h2>Часто задаваемые вопросы</h2>
+        <div class="question" onclick="toggleAnswer(1)">не испортите ли вы мне что-то?</div>
+        <div class="answer" id="answer1">Опыт нашей работы больше 4 года. За это время мы разработали уникальную программу обучения для наших сотрудников. Клинеры знают каким способом и на каких поверхностях нужно использовать специализированную химию.</div>
+
+        <div class="question" onclick="toggleAnswer(2)"> Нужно ли мне присутствовать во время уборки?</div>
+        <div class="answer" id="answer2">Многие присутствуют лично, когда впервые заказывают уборку. Но в следующий раз они предпочитают оставить менеджера и клинеров дома, в освободившееся время предпочитают заниматься более приятными делами.</div>
+
+        <div class="question" onclick="toggleAnswer(3)">Можно ли заказать уборку в выходные?</div>
+        <div class="answer" id="answer3">Да, мы работаем 7 дней в неделю.</div>
+    </section>
+
+    <section id="reviews" class="reviews">
+        <h2>Отзывы наших клиентов</h2>
+        <p>"В последний раз дома было так чисто, когда жена машину поцарапала😂"</p>
+        <p>"После этих ребят наш офис можно назвать больницей."</p>
+        <p>"Я даже не подозревал, что пол в моём кабинете может быть такого цвета."</p>
+        <p>"Благодаря труду Ecorai, начальник в понедельник даже не узнал, что в пятницу был корпоратив."</p>
+    </section>
+
+    <section id="nash_garant" class="nash_garant">
+        <h2>Наши гарантии</h2>
+        <p>Мы понимаем, что вы принимаете работы поздно вечером и впопыхах. Поэтому теперь у Вас есть сутки после уборки квартиры или коттеджа, чтобы все тщательно проверить! Маловероятно, но если вдруг случится так, что вы нашли какие-то недоделки на следующий день после уборки - просто позвоните нам, и мы приедем и бесплатно все исправим.</p>
+    </section>
+
+    <button onclick="toggleOrderForm()">Заказать услугу</button>
+    <div id="orderForm">
+        <form>
+            <label for="name">Имя:</label>
+            <input type="text" id="name" name="name" required><br>
+            <label for="phone">Телефон:</label>
+            <input type="text" id="phone" name="phone" required><br>
+            <label for="service">Услуга:</label>
+            <select id="service" name="service" required>
+                <option value="general">Уборка офисов</option>
+                <option value="daily">Уборка территории</option>
+                <option value="carpet">Высотно-промышленный клининг</option>
+                <option value="window">Спецуборка после ремонта или ЧП</option>
+                <option value="window">Уборка территории</option>
+            </select><br>
+            <input type="submit" value="Отправить">
+        </form>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 Клининговое агентство "EcoRai". Все права защищены.</p>
+</footer>
+
+<script>
+    function toggleOrderForm() {
+        const orderForm = document.getElementById('orderForm');
+        if (orderForm.style.display === 'block') {
+            orderForm.style.display = 'none'; // Закрыть форму
+        } else {
+            orderForm.style.display = 'block'; // Открыть форму
+        }
+    }
+
+    function toggleAnswer(id) {
+        const answer = document.getElementById(`answer${id}`);
+        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+    }
+</script>
+
+</body>
+</html>

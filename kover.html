@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аренда грязезащитных ковров</title>
+    <!-- Подключение Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Основные стили */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('images/просто крутые/photo_4_2025-02-04_21-04-49.jpg');
+            color: #040202;
+            line-height: 1.6;
+        }
+
+        header {
+            color: rgb(239, 238, 242);
+            padding: 60px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(228, 4, 45, 0.1);
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(5, 2, 2, 0.7);
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/наши услуги/ковры/photo_14_2025-02-04_21-04-49.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.5;
+            z-index: 1;
+        }
+
+        header h1 {
+            position: relative;
+            z-index: 2;
+            font-size: 3em;
+            margin: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #1b7744;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: white;
+            padding: 20px 30px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            font-size: 1.2em;
+            margin: 0 15px;
+        }
+
+        nav a:hover {
+            background-color: #1ab96f;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .service {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .service img {
+            width: 100%;
+            max-width: 600px; /* Уменьшенный размер картинки */
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+            transition: transform 0.3s ease; /* Анимация при наведении */
+        }
+
+        .service h1, .service h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #0f0102;
+            background-color: #9ebfb2;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .service p {
+            font-size: 1.1em; /* Единый размер текста */
+            text-align: justify;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #080606;
+            background-color: #fdfffe;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .service ul {
+            list-style-type: disc;
+            list-style: none;
+            padding-left: 40px;
+            background-color: #f4f5f5;
+            text-align: left;
+            margin-bottom: 20px;
+            color: #0e0a0a;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .service ul li {
+            margin-bottom: 10px;
+        }
+
+        .image-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px; /* Расстояние между картинками */
+            margin: 20px 0;
+        }
+
+        .image-row img {
+            width: 32%; /* Равномерное распределение ширины */
+            border-radius: 10px;
+            transition: transform 0.3s ease; /* Анимация при наведении */
+        }
+
+        .image-row img:hover {
+            transform: scale(1.05); /* Увеличение картинки при наведении */
+        }
+
+        footer {
+            background-color: #1b7744;
+            color: rgb(9, 8, 8);
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+
+        button {
+            background-color: #03752f;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            display: block;
+            margin: 20px auto;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #18c476;
+        }
+
+        #orderForm {
+            display: none;
+            background: rgb(196, 191, 199);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        #orderForm input, #orderForm select {
+            width: 100%;
+            padding: 5px;
+            margin: 5px 0;
+            border: 3px solid #03844c;
+            border-radius: 5px;
+        }
+
+        #orderForm input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #orderForm input[type="submit"]:hover {
+            background-color: #28d88c;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Аренда грязезащитных ковров</h1>
+    </header>
+    
+    <nav>
+        <a href="index.html">Главная</a>
+        <a href="nash_uslugi.html">Услуги</a>
+        <a href="o_nac.html">О нас</a>
+        <a href="contacts.html">Контакты</a>
+    </nav>
+    <button onclick="toggleOrderForm()">Заказать услугу</button>
+<div id="orderForm">
+    <form>
+        <label for="name">Имя:</label>
+        <input type="text" id="name" name="name" required><br>
+        <label for="phone">Телефон:</label>
+        <input type="text" id="phone" name="phone" required><br>
+        <label for="service">Услуга:</label>
+        <select id="service" name="service" required>
+            <option value="general">Уборка офисов</option>
+            <option value="daily">Уборка территории</option>
+            <option value="carpet">Высотно-промышленный клининг</option>
+            <option value="window">Спецуборка после ремонта или ЧП</option>
+            <option value="window">Уборка территории</option>
+        </select><br>
+        <input type="submit" value="Отправить">
+    </form>
+</div>
+    <div class="container">
+        <div class="service">
+            <img src="images/наши услуги/ковры/photo_14_2025-02-04_21-04-58.jpg" alt="Генеральная уборка дома">
+            <p><strong>Аренда грязезащитных ковров</strong> — это удобная услуга, которая позволяет поддерживать чистоту в помещении, защищая его от грязи, пыли и влаги. Мы предоставляем качественные ковры различных размеров и дизайнов, которые идеально вписываются в интерьер и эффективно справляются с загрязнениями.</p>
+           
+            <ul>
+                <li><strong>Подбор ковров:</strong> Мы поможем выбрать оптимальный размер, тип и дизайн ковров, исходя из ваших потребностей и особенностей помещения.</li>
+                <li><strong>Доставка и установка:</strong> Наши специалисты привезут ковры и установят их в нужных зонах.</li>
+                <li><strong>Регулярное обслуживание:</strong> мМы обеспечиваем своевременную замену и чистку ковров, чтобы они всегда оставались эффективными и эстетичными.</li>
+                <li><strong>Контроль качества:</strong> Наши менеджеры следят за состоянием ковров и оперативно решают любые вопросы.</li>
+            </ul>
+            <h2>Интересный факт.</h2>
+            <p>
+                Знаете ли вы, что грязезащитные ковры способны удерживать до 80% грязи и влаги, предотвращая их распространение по помещению? Это делает их незаменимыми в местах с высокой проходимостью, таких как офисы, торговые центры и рестораны.
+            </p>
+            <h2>На стоимость влияет:</h2>
+            <ul>
+                <li><strong>- Размер и количество ковров.</li>
+                <li><strong>- Срок аренды (краткосрочная или долгосрочная).
+                </li>
+                <li><strong>- Тип покрытия (стандартное или премиальное).</li>
+                <li><strong>- Частота замены и обслуживания.</li>
+            </ul>
+            <h2>Как мы используем грязезащитные ковры:</h2>
+            <div class="image-row">
+                <img src="images/наши услуги/ковры/photo_13_2025-02-04_21-04-49.jpg" alt="Уборка офиса 1">
+                <img src="images/наши услуги/ковры/photo_2025-02-10_12-45-30 (2).jpg" alt="Уборка офиса 2">
+                <img src="images/наши услуги/ковры/photo_10_2025-02-04_21-04-49.jpg" alt="Уборка офиса 3">
+            </div>
+        </div>
+    </div>
+
+    <button onclick="toggleOrderForm()">Заказать услугу</button>
+    <div id="orderForm">
+        <form>
+            <label for="name">Имя:</label>
+            <input type="text" id="name" name="name" required><br>
+            <label for="phone">Телефон:</label>
+            <input type="text" id="phone" name="phone" required><br>
+            <label for="service">Услуга:</label>
+            <select id="service" name="service" required>
+                <option value="general">Уборка офисов</option>
+                <option value="daily">Уборка территории</option>
+                <option value="carpet">Высотно-промышленный клининг</option>
+                <option value="window">Спецуборка после ремонта или ЧП</option>
+                <option value="window">Уборка территории</option>
+            </select><br>
+            <input type="submit" value="Отправить">
+        </form>
+    </div>
+</div>
+
+<script>
+    function toggleOrderForm() {
+        const orderForm = document.getElementById('orderForm');
+        if (orderForm.style.display === 'block') {
+            orderForm.style.display = 'none'; // Закрыть форму
+        } else {
+            orderForm.style.display = 'block'; // Открыть форму
+        }
+    }
+
+    function toggleAnswer(id) {
+        const answer = document.getElementById(`answer${id}`);
+        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+    }
+</script>
+<footer>
+    <p>&copy; 2025 Клининговое агентство "EcoRai". Все права защищены.</p>
+</footer>
+
+</body>
+</html>

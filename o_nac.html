@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Цены на генеральную уборку</title>
+    <style>
+        /* Основные стили */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('images/просто крутые/photo_4_2025-02-04_21-04-49.jpg');
+            color: #f6f6f6;
+            line-height: 1.6;
+        }
+
+        header {
+            color: #f6f8f7; /* Новый цвет заголовка */
+            padding: 60px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(48, 4, 245, 0.1);
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(5, 2, 2, 0.7); /* Тень для текста */
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/просто крутые/photo_2_2025-02-04_22-10-41.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.5;
+            z-index: 1;
+        }
+
+        header h1 {
+            position: relative;
+            z-index: 2;
+            font-size: 3em;
+            margin: 0;
+        }
+
+       
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #1b7744;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: white;
+            padding: 20px 30px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            font-size: 1.2em;
+            margin: 0 15px;
+        }
+
+        nav a:hover {
+            background-color: #1ab96f;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            
+        }
+
+        .services, .faq, .reviews, .nash_garant {
+            margin-bottom: 40px;
+            text-align: center;
+            background: rgb(115, 210, 149);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(11, 6, 6, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .service {
+            display: flex;
+            text-align: center;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .service img {
+            width: 50%; /* Уменьшение размера изображения */
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .service h1, h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #f8f9f9;
+            text-shadow: 2px 2px 4px rgba(84, 83, 83, 0.7);
+        }
+
+        .service p {
+            font-size: 1em;
+            text-align: justify;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #080606;
+            background-color: #edf1ef; 
+            padding: 15px;
+            border-radius: 50px;
+        }
+
+        .service ul {
+            list-style-type: disc;
+            font-size: 1em;
+            padding-left: 40px;
+            text-align: left;
+            margin-bottom: 20px;
+            color: #080606;
+            background-color: #edf1ef; 
+            border-radius: 50px;
+            
+        }
+
+        .service ul li {
+            margin-bottom: 10px;
+        }
+        .image-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .image-row img {
+            width: 32%; /* Равномерное распределение ширины */
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .image-row img:hover {
+            transform: scale(1.05); /* Анимация при наведении */
+        }
+
+
+        footer {
+            background-color: #046b44;/*низ сайта цвет фона*/
+            color: rgb(9, 8, 8);/*низ сайта цвет текста*/
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        button {
+            background-color: #47cf82;
+            color: rgb(8, 8, 8);
+            border: none;
+            padding: 15px 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            display: block;
+            margin: 20px auto;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #3caa75;
+        }
+
+        #orderForm {
+            display: none;
+            background: rgb(196, 191, 199);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        #orderForm input, #orderForm select {
+            width: 100%;
+            padding: 5px;
+            margin: 5px 0;
+            border: 3px solid #03844c;
+            border-radius: 5px;
+        }
+
+        #orderForm input[type="submit"] {
+            background-color: #4CAF50;
+            color: rgb(2, 11, 5);
+            border: none;
+            cursor: pointer;
+        }
+
+        #orderForm input[type="submit"]:hover {
+            background-color: #28d88c;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Клининговое агентство "EcoRai"</h1>
+    </header>
+    
+    <nav>
+        <a href="index.html">Главная</a>
+        <a href="nash_uslugi.html">Услуги</a>
+        <a href="contacts.html">Контакты</a>
+    </nav>
+    <button onclick="toggleOrderForm()">Заказать услугу</button>
+<div id="orderForm">
+    <form>
+        <label for="name">Имя:</label>
+        <input type="text" id="name" name="name" required><br>
+        <label for="phone">Телефон:</label>
+        <input type="text" id="phone" name="phone" required><br>
+        <label for="service">Услуга:</label>
+        <select id="service" name="service" required>
+            <option value="general">Уборка офисов</option>
+            <option value="daily">Уборка территории</option>
+            <option value="carpet">Высотно-промышленный клининг</option>
+            <option value="window">Спецуборка после ремонта или ЧП</option>
+            <option value="window">Уборка территории</option>
+        </select><br>
+        <input type="submit" value="Отправить">
+    </form>
+</div>
+    <div class="container">
+        <div class="service">
+            <img src="images/главная/photo_15_2025-02-04_21-04-49.jpg" alt="Генеральная уборка дома">
+            <h1>Наша философия</h1>
+            <p>
+                EcoRai — чистота с душой
+                Название компании — EcoRai — отражает её философию. "Eco" символизирует экологичность и заботу о природе, а "Rai" (от французского "рай") — это стремление создавать идеальную чистоту, которая приносит радость и уют. С самого начала Ecorai стала использовать только экологически безопасные средства, которые не вредят ни людям, ни окружающей среде.
+            </p>
+            <p>
+                 Чистота — это искусство
+                В EcoRai верят, что чистота — это не просто отсутствие грязи. Это искусство создавать пространство, где приятно жить и работать. Каждый сотрудник компании проходит строгий отбор и обучение, чтобы не просто выполнять задачи, а делать это с душой. Именно поэтому клиенты Ecorai часто говорят: "У вас не просто убирают — у вас создают уют".
+            </p>
+            <h2>Сильные стороны нашей команды</h2>
+            <ul>
+                <li><strong>Опыт и профессионализм:</strong> Наши сотрудники — это не просто уборщики, а настоящие эксперты в области клининга. Они знают, как справиться с любыми видами загрязнений, будь то сложные пятна, застарелая пыль или загрязнения после ремонта.</li>
+                <li><strong>Индивидуальный подход:</strong> Мы понимаем, что каждый клиент уникален, и предлагаем гибкие решения, которые учитывают ваши пожелания и особенности вашего пространства.</li>
+                <li><strong>Современные технологии:</strong> Мы используем инновационные методы уборки, такие как паровая очистка, профессиональные пылесосы с HEPA-фильтрами и другие передовые технологии, которые позволяют добиться безупречного результата.</li>
+                <li><strong>Пунктуальность и надежность:</strong> Мы ценим ваше время и всегда приезжаем точно в назначенный час.</li>
+            </ul>
+        </div>
+         <!-- Три картинки в один ряд -->
+         <div class="image-row">
+            <img src="images/о нас/photo_2025-02-07_23-41-20.jpg" alt="Картинка 1">
+            <img src="images/о нас/photo_2025-02-07_23-41-21.jpg" alt="Картинка 2">
+            <img src="images/о нас/photo_2025-02-07_23-41-22.jpg" alt="Картинка 3">
+        </div>
+        <button onclick="toggleOrderForm()">Заказать услугу</button>
+    <div id="orderForm">
+        <form>
+            <label for="name">Имя:</label>
+            <input type="text" id="name" name="name" required><br>
+            <label for="phone">Телефон:</label>
+            <input type="text" id="phone" name="phone" required><br>
+            <label for="service">Услуга:</label>
+            <select id="service" name="service" required>
+                <option value="general">Уборка офисов</option>
+                <option value="daily">Уборка территории</option>
+                <option value="carpet">Высотно-промышленный клининг</option>
+                <option value="window">Спецуборка после ремонта или ЧП</option>
+                <option value="window">Уборка территории</option>
+            </select><br>
+            <input type="submit" value="Отправить">
+        </form>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 Клининговое агентство "EcoRai". Все права защищены.</p>
+</footer>
+
+<script>
+    function toggleOrderForm() {
+        const orderForm = document.getElementById('orderForm');
+        if (orderForm.style.display === 'block') {
+            orderForm.style.display = 'none'; // Закрыть форму
+        } else {
+            orderForm.style.display = 'block'; // Открыть форму
+        }
+    }
+
+    function toggleAnswer(id) {
+        const answer = document.getElementById(`answer${id}`);
+        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+    }
+</script>
+    
+</body>
+</html>

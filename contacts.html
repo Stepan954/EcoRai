@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - Клининговое агентство "EcoRai"</title>
+    <!-- Подключение Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('images/просто крутые/photo_4_2025-02-04_21-04-49.jpg');
+            color: #040202;
+            line-height: 1.6;
+            text-align: center; /* Центрирование текста */
+            font-size: 18px; /* Увеличенный размер текста */
+        }
+
+        header {
+            color: rgb(239, 238, 242);
+            padding: 60px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(228, 4, 45, 0.1);
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(5, 2, 2, 0.7);
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/контакты/photo_17_2025-02-04_21-04-49.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.5;
+            z-index: 1;
+        }
+
+        header h1 {
+            position: relative;
+            z-index: 2;
+            font-size: 3em;
+            margin: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #1b7744;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: white;
+            padding: 20px 30px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            font-size: 1.2em;
+            margin: 0 15px;
+        }
+
+        nav a:hover {
+            background-color: #1ab96f;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 40px;
+            background: rgb(212, 232, 212);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #fbfafa;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .service {
+            font-size: 1.2em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .service img {
+            width: 100%;
+            max-width: 100px;
+            align-items: center;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+            transition: transform 0.3s ease;
+        }
+
+        .service h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #0f0102;
+            background: rgb(212, 232, 212);
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        footer {
+            background-color: #1b7744;
+            color: rgb(9, 8, 8);
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        button {
+            background-color: #03752f;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            display: block;
+            margin: 20px auto;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #18c476;
+        }
+
+        #orderForm {
+            display: none;
+            background: rgb(196, 191, 199);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        #orderForm input, #orderForm select {
+            width: 100%;
+            padding: 5px;
+            margin: 5px 0;
+            border: 3px solid #03844c;
+            border-radius: 5px;
+        }
+
+        #orderForm input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #orderForm input[type="submit"]:hover {
+            background-color: #28d88c;
+        }
+
+        .contact-info {
+            margin-top: 20px;
+        }
+
+        .contact-info a {
+            text-decoration: none;
+            color: #0077b6;
+            margin: 0 10px;
+        }
+
+        .contact-info img {
+            vertical-align: middle;
+            width: 100px; /* Размер иконок 100x100 пикселей */
+            height: 100px; /* Размер иконок 100x100 пикселей */
+            margin-right: 8px; /* Отступ между иконкой и текстом */
+        }
+
+        .map {
+            margin-top: 20px;
+            text-align: center; /* Центрирование карты */
+        }
+
+        .map iframe {
+            width: 100%; /* Карта занимает всю ширину контейнера */
+            height: 500px; /* Увеличенная высота карты */
+            border: 0;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Контакты</h1>
+</header>
+
+<nav>
+    <a href="index.html">Главная</a>
+    <a href="nash_uslugi.html">Услуги</a>
+    <a href="o_nac.html">О нас</a>
+</nav>
+<button onclick="toggleOrderForm()">Заказать услугу</button>
+<div id="orderForm">
+    <form>
+        <label for="name">Имя:</label>
+        <input type="text" id="name" name="name" required><br>
+        <label for="phone">Телефон:</label>
+        <input type="text" id="phone" name="phone" required><br>
+        <label for="service">Услуга:</label>
+        <select id="service" name="service" required>
+            <option value="general">Уборка офисов</option>
+            <option value="daily">Уборка территории</option>
+            <option value="carpet">Высотно-промышленный клининг</option>
+            <option value="window">Спецуборка после ремонта или ЧП</option>
+            <option value="window">Уборка территории</option>
+        </select><br>
+        <input type="submit" value="Отправить">
+    </form>
+</div>
+<div class="container">
+    <div class="service">
+        <section id="contact-info">
+            <h2>Наши контакты</h2>
+            <p>Свяжитесь с нами для заказа услуг или получения дополнительной информации.</p>
+            <p>Телефон: +7 (123) 456-78-90</p>
+            <p><img src="images/логотипы/photo_2025-02-10_17-31-18 (2).jpg" alt="Mail"></p>
+            <p>Email: <a href="mailto:info@chistota.ru">info@chistota.ru</a></p>
+            <p><img src="images/логотипы/photo_2025-02-10_17-31-18.jpg" alt="Telegram"></p>
+            <p>Telegram: <a href="https://t.me/Petrukha_S" target="_blank">@Petrukha_S</a></p>
+            <p>Адрес: г. Новороссийск, ул. Динамовская, д. 1</p>
+        </section>
+
+        <section id="map">
+            <h2>Мы на карте</h2>
+            <!-- Обновленная карта с указанием адреса -->
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2819.1234567890123!2d37.774929!3d44.715312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40f06b5a5b5b5b5b%3A0x5b5b5b5b5b5b5b5b!2z0J3QvtCy0L7RgNC40YHQutC40Lkg0YPQvdC40LLQtdGA0YHQuNGC0LXRgiwg0J3QvtCy0L7RgNC40YHQutC40Lkg0YPQvdC40LLQtdGA0YHQuNGC0LXRgg!5e0!3m2!1sru!2sru!4v1621234567890!5m2!1sru!2sru"
+                width="100%"
+                height="500"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy">
+            </iframe>
+        </section>
+    </div>
+</div>
+
+<button onclick="toggleOrderForm()">Заказать услугу</button>
+<div id="orderForm">
+    <form>
+        <label for="name">Имя:</label>
+        <input type="text" id="name" name="name" required><br>
+        <label for="phone">Телефон:</label>
+        <input type="text" id="phone" name="phone" required><br>
+        <label for="service">Услуга:</label>
+        <select id="service" name="service" required>
+            <option value="general">Уборка офисов</option>
+            <option value="daily">Уборка территории</option>
+            <option value="carpet">Высотно-промышленный клининг</option>
+            <option value="window">Спецуборка после ремонта или ЧП</option>
+            <option value="window">Уборка территории</option>
+        </select><br>
+        <input type="submit" value="Отправить">
+    </form>
+</div>
+
+<script>
+    function toggleOrderForm() {
+        const orderForm = document.getElementById('orderForm');
+        if (orderForm.style.display === 'block') {
+            orderForm.style.display = 'none'; // Закрыть форму
+        } else {
+            orderForm.style.display = 'block'; // Открыть форму
+        }
+    }
+
+    function toggleAnswer(id) {
+        const answer = document.getElementById(`answer${id}`);
+        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+    }
+</script>
+
+<footer>
+    <p>&copy; 2025 Клининговое агентство "EcoRai". Все права защищены.</p>
+</footer>
+
+</body>
+</html>

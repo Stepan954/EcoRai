@@ -1,0 +1,396 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Цены на генеральную уборку</title>
+    <!-- Подключение Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Основные стили */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('images/просто крутые/photo_4_2025-02-04_21-04-49.jpg');
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        header {
+            color: rgb(239, 238, 242);
+            padding: 60px 0;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(9, 2, 2, 0.7); /* Тень для текста */
+            box-shadow: 0 4px 6px rgba(48, 4, 245, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/просто крутые/photo_17_2025-02-04_21-04-49.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.5;
+            z-index: 1;
+        }
+
+        header h1 {
+            position: relative;
+            z-index: 2;
+            font-size: 3em;
+            margin: 0;
+        }
+
+      
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #1b7744;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: white;
+            padding: 20px 30px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            font-size: 1.2em;
+            margin: 0 15px;
+        }
+
+        nav a:hover {
+            background-color: #41ad83;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 10px;
+            background: rgb(246, 248, 246);
+            box-shadow: 0 0 10px rgba(8, 3, 3, 0.1);
+            border-radius: 10px; /* Закругленные углы */
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(246, 246, 246, 0.7); /* Тень для текста */
+            font-weight: 700; /* Жирный шрифт для заголовка */
+            color: #0b0909;
+        }
+
+        .services p {
+            font-size: 1.3em;
+            color: rgb(9, 8, 8);
+            text-align: center;
+            padding: 0px 0;
+            font-weight:500;
+            margin-top: 0px;
+        }
+
+        .services ul {
+            list-style: none; /* Убираем черные точки (маркеры списка) */
+            padding: 0;
+            display: flex;
+            flex-direction: column; /* Располагаем элементы в колонку */
+            gap: 20px; /* Расстояние между элементами */
+            align-items: center; /* Центрируем элементы */
+        }
+
+        .services li {
+            text-align: center;
+            width: 100%; /* Ширина на всю доступную ширину */
+        }
+
+        .services a {
+            text-decoration: none; /* Убираем подчеркивание у ссылок */
+            color: inherit; /* Наследуем цвет текста */
+            display: block;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Анимация при наведении */
+            position: relative; /* Контейнер для абсолютного позиционирования текста */
+        }
+
+        .services a:hover {
+            transform: scale(1.05); /* Увеличиваем элемент при наведении */
+        }
+
+        .services img {
+            width: 250px; /* Фиксированный размер изображений */
+            height: 250px;
+            border-radius: 70%; /* Делаем изображения круглыми */
+            object-fit: cover; /* Сохраняем пропорции изображения */
+            margin-bottom: 10px; /* Отступ между изображением и текстом */
+        }
+
+        .services p.text-overlay {
+            position: absolute; /* Абсолютное позиционирование текста */
+            top: 50%; /* Размещаем текст по центру вертикально */
+            left: 50%; /* Размещаем текст по центру горизонтально */
+            transform: translate(-50%, -50%); /* Центрируем текст */
+            margin: 0;
+            font-size: 1.2em; /* Уменьшаем размер текста */
+            color: rgb(251, 252, 252); /* Цвет текста */
+            font-weight: bold; /* Жирный шрифт */
+            text-shadow: 4px 2px 4px rgba(0, 0, 0, 0.7); /* Тень для текста */
+            white-space: normal; /* Разрешаем перенос текста */
+            word-wrap: break-word; /* Перенос длинных слов */
+            max-width: 90%; /* Ограничиваем ширину текста */
+            text-align: center; /* Выравниваем текст по центру */
+        }
+
+        .services button {
+            background-color: #046a37;
+            color: rgb(252, 250, 250);
+            border: none;
+            padding: 10px 20px;
+            text-shadow: 2px 2px 4px rgba(15, 2, 2, 0.7); /* Тень для текста */
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+            font-weight: 500; /* Полужирный шрифт для кнопки */
+        }
+
+        .services button:hover {
+            background-color: #26c580; /* Цвет кнопки при наведении */
+        }
+
+        /* Стили для модального окна */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .modal-content button {
+            background-color: #055c22;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .modal-content button:hover {
+            background-color: #19b266;
+        }
+
+        footer {
+            background-color: #046b44;/*низ сайта цвет фона*/
+            color: rgb(9, 8, 8);/*низ сайта цвет текста*/
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        button {
+            background-color: #0c5c2b;/*цвет фона кнопки заказа*/
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            display: block;
+            margin: 20px auto;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #41c067;/*цвет кнопки если навести на нее мышь*/
+        }
+
+        #orderForm {
+            display: none;
+            background: rgb(191, 199, 195);/*цвет фона когда нажимаешь кнопку*/
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);/*делает фон под надписью
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+           #orderForm input, #orderForm select {
+            width: 100%;
+            padding: 5px;
+            margin: 5px 0;
+            border: 3px solid #03844c;
+            border-radius: 5px;
+        }
+
+        #orderForm input[type="submit"] {
+            background-color: #4CAF50;/*цвет кнопки отправить*/
+            color: white;/*цвет букв кнопки отправить*/
+            border: none;
+            cursor: pointer;
+        }
+
+        #orderForm input[type="submit"]:hover {
+            background-color: #035a26;/*цвет кнопки отправить после наведения мыщи*/
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Клининговое агентство "EcoRai"</h1>
+    </header>
+    
+    <nav>
+        <a href="index.html">Главная</a>
+        <a href="o_nac.html">О нас</a>
+        <a href="contacts.html">Контакты</a>
+    </nav>
+    <button onclick="toggleOrderForm()">Заказать услугу</button>
+<div id="orderForm">
+    <form>
+        <label for="name">Имя:</label>
+        <input type="text" id="name" name="name" required><br>
+        <label for="phone">Телефон:</label>
+        <input type="text" id="phone" name="phone" required><br>
+        <label for="service">Услуга:</label>
+        <select id="service" name="service" required>
+            <option value="general">Уборка офисов</option>
+            <option value="daily">Уборка территории</option>
+            <option value="carpet">Высотно-промышленный клининг</option>
+            <option value="window">Спецуборка после ремонта или ЧП</option>
+            <option value="window">Уборка территории</option>
+        </select><br>
+        <input type="submit" value="Отправить">
+    </form>
+</div>
+    <div class="container">
+        <section id="services" class="services">
+            <h2>Наши услуги</h2>
+            <p>Мы рады приветствовать вас на нашем сайте! Наша команда профессионалов готова взять на себя все заботы, связанные с уборкой, чтобы вы могли наслаждаться свободным временем, проводить его с близкими или сосредоточиться на важных делах.</p>
+            <ul>
+                <li>
+                    <a href="ofic.html">
+                        <img src="images/наши услуги/офисс/photo_8_2025-02-04_21-04-49.jpg" alt="Уборка офисов">
+                        <p class="text-overlay">Уборка офисов</p>
+                    </a>
+                    <button onclick="openModal('Комплексная уборка офисных помещений, включая рабочие места, санузлы, кухни и общие зоны.')">Узнать больше</button>
+                </li>
+                <li>
+                    <a href="territoria.html">
+                        <img src="images/наши услуги/территория/photo_7_2025-02-04_21-04-49.jpg" alt="Уборка территории">
+                        <p class="text-overlay">Уборка территории</p>
+                    </a>
+                    <button onclick="openModal('Уборка прилегающих территорий (парковки, тротуары, входные группы).')">Узнать больше</button>
+                </li>
+                <li>
+                    <a href="visota.html">
+                        <img src="images/наши услуги/высота/photo_1_2025-02-04_21-04-33.jpg" alt="Высотно-промышленный клининг">
+                        <p class="text-overlay">Высотно-промышленный клининг</p>
+                    </a>
+                    <button onclick="openModal('Уборка на высоте (фасады зданий, витрины, окна, крыши).')">Узнать больше</button>
+                </li>
+                <li>
+                    <a href="spec_and_chp.html">
+                        <img src="images/наши услуги/чп и ремонт/photo_2_2025-02-04_21-04-49.jpg" alt="Спецуборка после ремонта или ЧП">
+                        <p class="text-overlay">Спецуборка после ремонта или ЧП</p>
+                    </a>
+                    <button onclick="openModal(' Уборка после строительных работ, пожаров, затоплений и других чрезвычайных ситуаций.')">Узнать больше</button>
+                </li>
+                <li>
+                    <a href="kover.html">
+                        <img src="images/наши услуги/ковры/photo_13_2025-02-04_21-04-49.jpg" alt="Аренда грязезащитных ковров">
+                        <p class="text-overlay">Аренда грязезащитных ковров</p>
+                    </a>
+                    <button onclick="openModal('Предоставление в аренду ковров для защиты помещений от грязи и влаги.')">Узнать больше</button>
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <!-- Модальное окно -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <p id="modal-text"></p>
+            <button onclick="closeModal()">Закрыть</button>
+        </div>
+    </div>
+
+    <script>
+        // Функции для работы с модальным окном
+        function openModal(text) {
+            document.getElementById('modal-text').innerText = text;
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+    </script>
+<button onclick="toggleOrderForm()">Заказать услугу</button>
+<div id="orderForm">
+    <form>
+        <label for="name">Имя:</label>
+        <input type="text" id="name" name="name" required><br>
+        <label for="phone">Телефон:</label>
+        <input type="text" id="phone" name="phone" required><br>
+        <label for="service">Услуга:</label>
+        <select id="service" name="service" required>
+            <option value="general">Уборка офисов</option>
+            <option value="daily">Уборка территории</option>
+            <option value="carpet">Высотно-промышленный клининг</option>
+            <option value="window">Спецуборка после ремонта или ЧП</option>
+            <option value="window">Уборка территории</option>
+        </select><br>
+        <input type="submit" value="Отправить">
+    </form>
+</div>
+</div>
+
+<footer>
+<p>&copy; 2025 Клининговое агентство "EcoRai". Все права защищены.</p>
+</footer>
+
+<script>
+function toggleOrderForm() {
+    const orderForm = document.getElementById('orderForm');
+    if (orderForm.style.display === 'block') {
+        orderForm.style.display = 'none'; // Закрыть форму
+    } else {
+        orderForm.style.display = 'block'; // Открыть форму
+    }
+}
+
+function toggleAnswer(id) {
+    const answer = document.getElementById(`answer${id}`);
+    answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+}
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Уборка офисов</title>
+    <!-- Подключение Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Основные стили */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('images/просто крутые/photo_4_2025-02-04_21-04-49.jpg');
+            color: #040202;
+            line-height: 1.6;
+        }
+
+        header {
+            color: rgb(239, 238, 242);
+            padding: 60px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(228, 4, 45, 0.1);
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(5, 2, 2, 0.7);
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/наши услуги/чп и ремонт/photo_2_2025-02-04_21-04-49.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.5;
+            z-index: 1;
+        }
+
+        header h1 {
+            position: relative;
+            z-index: 2;
+            font-size: 3em;
+            margin: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #1b7744;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: white;
+            padding: 20px 30px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            font-size: 1.2em;
+            margin: 0 15px;
+        }
+
+        nav a:hover {
+            background-color: #1ab96f;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .service {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .service img {
+            width: 100%;
+            max-width: 600px; /* Уменьшенный размер картинки */
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+            transition: transform 0.3s ease; /* Анимация при наведении */
+        }
+
+        .service h1, .service h2 {
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #0f0102;
+            background-color: #9ebfb2;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .service p {
+            font-size: 1.1em; /* Единый размер текста */
+            text-align: justify;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #080606;
+            background-color: #fdfffe;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .service ul {
+            list-style-type: disc;
+            list-style: none;
+            padding-left: 40px;
+            background-color: #f4f5f5;
+            text-align: left;
+            margin-bottom: 20px;
+            color: #0e0a0a;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .service ul li {
+            margin-bottom: 10px;
+        }
+
+        .image-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px; /* Расстояние между картинками */
+            margin: 20px 0;
+        }
+
+        .image-row img {
+            width: 32%; /* Равномерное распределение ширины */
+            border-radius: 10px;
+            transition: transform 0.3s ease; /* Анимация при наведении */
+        }
+
+        .image-row img:hover {
+            transform: scale(1.05); /* Увеличение картинки при наведении */
+        }
+
+        footer {
+            background-color: #1b7744;
+            color: rgb(9, 8, 8);
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+
+        button {
+            background-color: #03752f;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            display: block;
+            margin: 20px auto;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #18c476;
+        }
+
+        #orderForm {
+            display: none;
+            background: rgb(196, 191, 199);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        #orderForm input, #orderForm select {
+            width: 100%;
+            padding: 5px;
+            margin: 5px 0;
+            border: 3px solid #03844c;
+            border-radius: 5px;
+        }
+
+        #orderForm input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #orderForm input[type="submit"]:hover {
+            background-color: #28d88c;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Спецуборка после ремонта или ЧП</h1>
+    </header>
+    
+    <nav>
+        <a href="index.html">Главная</a>
+        <a href="nash_uslugi.html">Услуги</a>
+        <a href="o_nac.html">О нас</a>
+        <a href="contacts.html">Контакты</a>
+    </nav>
+    <button onclick="toggleOrderForm()">Заказать услугу</button>
+<div id="orderForm">
+    <form>
+        <label for="name">Имя:</label>
+        <input type="text" id="name" name="name" required><br>
+        <label for="phone">Телефон:</label>
+        <input type="text" id="phone" name="phone" required><br>
+        <label for="service">Услуга:</label>
+        <select id="service" name="service" required>
+            <option value="general">Уборка офисов</option>
+            <option value="daily">Уборка территории</option>
+            <option value="carpet">Высотно-промышленный клининг</option>
+            <option value="window">Спецуборка после ремонта или ЧП</option>
+            <option value="window">Уборка территории</option>
+        </select><br>
+        <input type="submit" value="Отправить">
+    </form>
+</div>
+    <div class="container">
+        <div class="service">
+            <img src="images/наши услуги/чп и ремонт/photo_12_2025-02-04_21-04-49.jpg" alt="Генеральная уборка дома">
+            <p><strong>Спецуборка после ремонта или чрезвычайного происшествия (ЧП)</strong>— это комплекс профессиональных услуг, направленных на приведение помещения в идеальное состояние. Она включает удаление строительного мусора, пыли, следов загрязнений и последствий аварийных ситуаций.
+            <ul>
+                <li><strong>Удаление строительного мусора:</strong>
+                    <li>Вынос остатков стройматериалов, упаковок, обрезков и других отходов. Сортировка и утилизация мусора в соответствии с экологическими нормами.</li>
+                </li>
+                <li><strong>Очистка от пыли::</strong>
+                    <li>Тщательная обработка всех поверхностей (стены, потолки, полы) для удаления строительной пыли. Используются промышленные пылесосы, влажная уборка и микрофибровые ткани.</li>
+                </li>
+                <li><strong>Мытье окон и светильников:</strong>
+                    <li>Очистка стекол, рам, подоконников и осветительных приборов от следов краски, штукатурки и других загрязнений.</li>
+                </li>
+                <li><strong>Очистка полов:</strong>
+                    <li>Удаление следов клея, краски, цемента и других строительных материалов. При необходимости проводится шлифовка и полировка поверхностей.</li>
+                </li>
+                <li><strong>Уборка после ЧП:</strong>
+                    <li>1. После затопления: удаление воды, просушка помещений, обработка от плесени и грибка.<li>
+                    <li>2. После пожара: устранение копоти, запаха гари, очистка поверхностей от сажи.<li>
+                    <li>3. После других аварий: ликвидация последствий, дезинфекция и восстановление чистоты.<li>
+                </li>
+                <li><strong>Дезинфекция и ароматизация:</strong>
+                    <li>Обработка поверхностей антибактериальными средствами для уничтожения микробов и неприятных запахов. При необходимости проводится ароматизация помещений.</li>
+                </li>
+
+            </ul>
+            <h2>Интересный факт.</h2>
+            <p>
+                После крупных ремонтов или ЧП в воздухе может оставаться до 80% микрочастиц пыли и вредных веществ, которые не видны невооруженным глазом. Спецуборка не только очищает поверхности, но и улучшает качество воздуха, делая помещение безопасным для людей.  
+            <h2>На стоимость влияет:</h2>
+            <ul>
+                <li><strong>- Площадь помещения и степень загрязнения.</li>
+                <li><strong>- Тип работ (уборка после ремонта, ликвидация последствий пожара, затопления и т.д.).</li>
+                <li><strong>- Необходимость использования специального оборудования (например, промышленные пылесосы, осушители).</li>
+                <li><strong>- Срочность выполнения работ.</li>
+                <li><strong>- Дополнительные услуги (например, утилизация мусора, дезинфекция).</li>
+            </ul>
+            <h2>Как мы производим Спецуборка после ремонта или ЧП:</h2>
+            <div class="image-row">
+                <img src="images/наши услуги/чп и ремонт/photo_2025-02-08_23-31-26.jpg" alt="Уборка офиса 1">
+                <img src="images/наши услуги/чп и ремонт/photo_2025-02-08_23-31-23.jpg" alt="Уборка офиса 2">
+                <img src="images/наши услуги/чп и ремонт/photo_2025-02-08_23-31-18.jpg" alt="Уборка офиса 3">
+            </div>
+            <h2>При заказе Спецуборка после ремонта или ЧП, так же заказывают:</h2>
+            <ul>
+                <li><strong>- Дезинфекцию помещений.</li>
+                <li><strong>- Химчистку мебели и ковров.</li>
+                <li><strong>- Утилизацию строительного мусора.</li>
+                <li><strong>- Очистку вентиляции и кондиционеров.</li>
+                <li><strong>- Ароматизацию помещений..</li>
+            </ul>
+        </div>
+    </div>
+
+    <button onclick="toggleOrderForm()">Заказать услугу</button>
+    <div id="orderForm">
+        <form>
+            <label for="name">Имя:</label>
+            <input type="text" id="name" name="name" required><br>
+            <label for="phone">Телефон:</label>
+            <input type="text" id="phone" name="phone" required><br>
+            <label for="service">Услуга:</label>
+            <select id="service" name="service" required>
+                <option value="general">Уборка офисов</option>
+                <option value="daily">Уборка территории</option>
+                <option value="carpet">Высотно-промышленный клининг</option>
+                <option value="window">Спецуборка после ремонта или ЧП</option>
+                <option value="window">Уборка территории</option>
+            </select><br>
+            <input type="submit" value="Отправить">
+        </form>
+    </div>
+</div>
+
+<script>
+    function toggleOrderForm() {
+        const orderForm = document.getElementById('orderForm');
+        if (orderForm.style.display === 'block') {
+            orderForm.style.display = 'none'; // Закрыть форму
+        } else {
+            orderForm.style.display = 'block'; // Открыть форму
+        }
+    }
+
+    function toggleAnswer(id) {
+        const answer = document.getElementById(`answer${id}`);
+        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+    }
+</script>
+
+<footer>
+    <p>&copy; 2025 Клининговое агентство "EcoRai". Все права защищены.</p>
+</footer>
+
+</body>
+</html>
