@@ -73,6 +73,67 @@
             background-color: #1ab96f;
         }
 
+        .logo-section {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-item {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .logo-item img {
+            width: 80px;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 50px;
+        }
+
+        .logo-item p {
+            font-size: 1.1em;
+            margin: 0;
+            color: #f4f7f4; 
+        }
+
+        .logo-item span {
+            color: #f4f6f7; /* Зеленый цвет для выделения */
+            font-weight: bold;
+        }
+        /* Стили для второго логотипа над кнопкой */
+        .logo-above-button {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .logo-above-button img {
+            width: 80px;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 50px;
+        }
+
+        .logo-above-button p {
+            font-size: 1.1em;
+            margin: 0;
+            color: #f4f7f4;
+        }
+
+        .logo-above-button span {
+            color: #f4f6f7;
+            font-weight: bold;
+        }
+        .logo-item :hover {
+            transform: scale(1.05); /* Увеличиваем элемент при наведении */
+        }
+        .logo-above-button :hover {
+            transform: scale(1.05); /* Увеличиваем элемент при наведении */
+        }
         .container {
             max-width: 800px;
             margin: 50px auto;
@@ -195,6 +256,9 @@
         #orderFormBottom input[type="submit"]:hover {
             background-color: #28d88c;
         }
+
+        
+
         /* Медиазапросы */
         @media (max-width: 768px) {
             nav {
@@ -206,7 +270,15 @@
                 font-size: 1em; /* Уменьшаем размер шрифта */
                 margin: 0 5px; /* Уменьшаем отступы между ссылками */
             }
-}
+
+            .logo-section {
+                flex-direction: column;
+            }
+
+            .logo-item {
+                margin-bottom: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -220,6 +292,25 @@
     <a href="nash_uslugi.html">Услуги</a>
     <a href="o_nac.html">О нас</a>
 </nav>
+
+<!-- Логотипы с подписями -->
+<div class="logo-section">
+    <div class="logo-item">
+        <img src="images/главная/photo_2025-02-12_18-12-39 (3).jpg" alt="Страхование">
+        <p><span>100%</span> страхование имущества заказчика</p>
+    </div>
+    <div class="logo-item">
+        <img src="images/главная/photo_2025-02-12_18-12-39.jpg" alt="Качество">
+        <p><span>4.87</span> средний балл качества</p>
+    </div>
+</div>
+
+<!-- Второй логотип над кнопкой -->
+<div class="logo-above-button">
+    <img src="images/главная/photo_2025-02-12_18-12-39 (2).jpg" alt="Оплата">
+    <p>Оплата <span>после</span> оказания услуг</p>
+</div>
+
 <button onclick="toggleOrderForm('orderForm')">Заказать услугу</button>
 <div id="orderForm">
     <form>
@@ -241,7 +332,9 @@
 <div class="container">
     <div class="service">
         <section id="contact-info">
-            <h2>Наши контакты</h2>
+            <h2>Режим работы:</h2>
+            <p>с 9:00 до 21:00, без выходных</p>
+            <h2>Наши контакты:</h2>
             <p>Свяжитесь с нами для заказа услуг или получения дополнительной информации.</p>
             <p>Телефон: +7 (123) 456-78-90</p>
             <p><img src="images/логотипы/photo_2025-02-10_17-31-18 (2).jpg" alt="Mail"></p>
@@ -252,7 +345,7 @@
         </section>
 
         <section id="map">
-            <h2>Мы на карте</h2>
+            <h2>Мы на карте:</h2>
             <!-- Обновленная карта с указанием адреса -->
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2819.1234567890123!2d37.774929!3d44.715312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40f06b5a5b5b5b5b%3A0x5b5b5b5b5b5b5b5b!2z0J3QvtCy0L7RgNC40YHQutC40Lkg0YPQvdC40LLQtdGA0YHQuNGC0LXRgiwg0J3QvtCy0L7RgNC40YHQutC40Lkg0YPQvdC40LLQtdGA0YHQuNGC0LXRgg!5e0!3m2!1sru!2sru!4v1621234567890!5m2!1sru!2sru"
@@ -267,46 +360,43 @@
 </div>
 
 <button onclick="toggleOrderForm('orderFormBottom')">Заказать услугу</button>
-        <div id="orderFormBottom">
-            <form>
-                <label for="nameBottom">Имя:</label>
-                <input type="text" id="nameBottom" name="name" required><br>
-                <label for="phoneBottom">Телефон:</label>
-                <input type="text" id="phoneBottom" name="phone" required><br>
-                <label for="serviceBottom">Услуга:</label>
-                <select id="serviceBottom" name="service" required>
-                    <option value="general">Уборка офисов</option>
-                    <option value="daily">Уборка территории</option>
-                    <option value="carpet">Высотно-промышленный клининг</option>
-                    <option value="window">Спецуборка после ремонта или ЧП</option>
-                    <option value="window">Аренда грязезащитных ковров</option>
-                </select><br>
-                <input type="submit" value="Отправить">
-            </form>
-        </div>
-    </div>
+<div id="orderFormBottom">
+    <form>
+        <label for="nameBottom">Имя:</label>
+        <input type="text" id="nameBottom" name="name" required><br>
+        <label for="phoneBottom">Телефон:</label>
+        <input type="text" id="phoneBottom" name="phone" required><br>
+        <label for="serviceBottom">Услуга:</label>
+        <select id="serviceBottom" name="service" required>
+            <option value="general">Уборка офисов</option>
+            <option value="daily">Уборка территории</option>
+            <option value="carpet">Высотно-промышленный клининг</option>
+            <option value="window">Спецуборка после ремонта или ЧП</option>
+            <option value="window">Аренда грязезащитных ковров</option>
+        </select><br>
+        <input type="submit" value="Отправить">
+    </form>
+</div>
 
-    <footer>
-        <p>&copy; 2025 Клининговое агентство "EcoRai". Все права защищены.</p>
-    </footer>
+<footer>
+    <p>&copy; 2025 Клининговое агентство "EcoRai". Все права защищены.</p>
+</footer>
 
-    <script>
-        function toggleOrderForm(formId) {
-            const orderForm = document.getElementById(formId);
-            if (orderForm.style.display === 'block') {
-                orderForm.style.display = 'none'; // Закрыть форму
-            } else {
-                orderForm.style.display = 'block'; // Открыть форму
-            }
+<script>
+    function toggleOrderForm(formId) {
+        const orderForm = document.getElementById(formId);
+        if (orderForm.style.display === 'block') {
+            orderForm.style.display = 'none'; // Закрыть форму
+        } else {
+            orderForm.style.display = 'block'; // Открыть форму
         }
+    }
 
-        function toggleAnswer(id) {
-            const answer = document.getElementById(`answer${id}`);
-            answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
-        }
-    </script>
-
-
+    function toggleAnswer(id) {
+        const answer = document.getElementById(`answer${id}`);
+        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+    }
+</script>
 
 </body>
 </html>

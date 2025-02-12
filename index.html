@@ -68,7 +68,67 @@
         nav a:hover {
             background-color: #1ab96f;
         }
+        .logo-section {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
 
+        .logo-item {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .logo-item img {
+            width: 80px;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 50px;
+        }
+
+        .logo-item p {
+            font-size: 1.1em;
+            margin: 0;
+            color: #f4f7f4; 
+        }
+
+        .logo-item span {
+            color: #f4f6f7; /* Зеленый цвет для выделения */
+            font-weight: bold;
+        }
+        /* Стили для второго логотипа над кнопкой */
+        .logo-above-button {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .logo-above-button img {
+            width: 80px;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 50px;
+        }
+
+        .logo-above-button p {
+            font-size: 1.1em;
+            margin: 0;
+            color: #f4f7f4;
+        }
+
+        .logo-above-button span {
+            color: #f4f6f7;
+            font-weight: bold;
+        }
+        .logo-item :hover {
+            transform: scale(1.05); /* Увеличиваем элемент при наведении */
+        }
+        .logo-above-button :hover {
+            transform: scale(1.05); /* Увеличиваем элемент при наведении */
+        }
         .container {
             padding: 20px;
             max-width: 1200px;
@@ -273,7 +333,23 @@
     <a href="o_nac.html">О нас</a>
     <a href="contacts.html">Контакты</a>
 </nav>
+<!-- Логотипы с подписями -->
+<div class="logo-section">
+    <div class="logo-item">
+        <img src="images/главная/photo_2025-02-12_18-12-39 (3).jpg" alt="Страхование">
+        <p><span>100%</span> страхование имущества заказчика</p>
+    </div>
+    <div class="logo-item">
+        <img src="images/главная/photo_2025-02-12_18-12-39.jpg" alt="Качество">
+        <p><span>4.87</span> средний балл качества</p>
+    </div>
+</div>
 
+<!-- Второй логотип над кнопкой -->
+<div class="logo-above-button">
+    <img src="images/главная/photo_2025-02-12_18-12-39 (2).jpg" alt="Оплата">
+    <p>Оплата <span>после</span> оказания услуг</p>
+</div>
 <div id="calculator">
     <form id="calcForm">
         <label for="place">Какое именно место:</label>
@@ -334,7 +410,7 @@
     <section id="faq" class="faq">
         <h2>Часто задаваемые вопросы</h2>
         <div class="question" onclick="toggleAnswer(1)">Не испортите ли вы мне что-то?</div>
-        <div class="answer" id="answer1">Опыт нашей работы больше 4 лет. За это время мы разработали уникальную программу обучения для наших сотрудников. Клинеры знают каким способом и на каких поверхностях нужно использовать специализированную химию.</div>
+        <div class="answer" id="answer1">Опыт нашей работы больше 10 лет. За это время мы разработали уникальную программу обучения для наших сотрудников. Клинеры знают каким способом и на каких поверхностях нужно использовать специализированную химию.</div>
 
         <div class="question" onclick="toggleAnswer(2)"> Нужно ли мне присутствовать во время уборки?</div>
         <div class="answer" id="answer2">Многие присутствуют лично, когда впервые заказывают уборку. Но в следующий раз они предпочитают оставить менеджера и клинеров дома, в освободившееся время предпочитают заниматься более приятными делами.</div>
