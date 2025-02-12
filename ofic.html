@@ -230,6 +230,36 @@
         #orderFormBottom input[type="submit"]:hover {
             background-color: #28d88c;
         }
+        
+        #calculator {
+            background: rgb(228, 246, 234);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        #calculator input, #calculator select {
+            width: 100%;
+            padding: 5px;
+            margin: 5px 0;
+            border: 3px solid #3a7e3f;
+            border-radius: 5px;
+            background-color: rgb(251, 250, 250);
+        }
+
+        #calculator input[type="submit"] {
+            background-color: #4CAF50;
+            color: rgb(2, 11, 5);
+            border: none;
+            cursor: pointer;
+        }
+
+        #calculator input[type="submit"]:hover {
+            background-color: #28d88c;
+        }
+
         /* Медиазапросы */
         @media (max-width: 768px) {
             nav {
@@ -256,6 +286,36 @@
         <a href="o_nac.html">О нас</a>
         <a href="contacts.html">Контакты</a>
     </nav>
+    <div id="calculator">
+        <form id="calcForm">
+            <label for="place">Какое именно место:</label>
+            <select id="place" name="place" required>
+                <option value="ofic">Уборка офис</option>
+                <option value="territoria">Уборка территории</option>
+                <option value="visota">Высотно-промышленный клининг</option>
+                <option value="spec_and_chp">Спецуборка после ремонта и ЧП</option>
+                <option value="kover">Аренда грязезащитных ковров</option>
+            </select><br>
+    
+            <label for="service">Выбор услуги:</label>
+            <select id="service" name="service" required>
+                <option value="daily">Ежедневная уборка</option>
+                <option value="general">Генеральная уборка</option>
+            </select><br>
+    
+            <label for="area">Площадь (м²):</label>
+            <input type="number" id="area" name="area" required><br>
+    
+            <label for="urgent">Нужно срочно:</label>
+            <input type="checkbox" id="urgent" name="urgent"><br>
+    
+            <input type="submit" value="Рассчитать стоимость">
+        </form>
+        <div id="result" style="display: none; margin-top: 20px;">
+            <h3>Примерная стоимость:</h3>
+            <p id="cost"></p>
+        </div>
+    </div>
     <button onclick="toggleOrderForm('orderForm')">Заказать услугу</button>
     <div id="orderForm">
         <form>
@@ -269,7 +329,7 @@
                 <option value="daily">Уборка территории</option>
                 <option value="carpet">Высотно-промышленный клининг</option>
                 <option value="window">Спецуборка после ремонта или ЧП</option>
-                <option value="window">Уборка территории</option>
+                <option value="window">Аренда грязезащитных ковров</option>
             </select><br>
             <input type="submit" value="Отправить">
         </form>
@@ -359,7 +419,7 @@
                     <option value="daily">Уборка территории</option>
                     <option value="carpet">Высотно-промышленный клининг</option>
                     <option value="window">Спецуборка после ремонта или ЧП</option>
-                    <option value="window">Уборка территории</option>
+                    <option value="window">Аренда грязезащитных ковров</option>
                 </select><br>
                 <input type="submit" value="Отправить">
             </form>

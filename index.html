@@ -170,7 +170,6 @@
         button:hover {
             background-color: #3caa43;
         }
-
         #orderForm, #orderFormBottom {
             display: none;
             background: rgb(196, 191, 199);
@@ -180,9 +179,8 @@
             max-width: 400px;
             margin: 20px auto;
         }
-
-        /* Изменения для верхней формы */
-        #orderForm input, #orderForm select {
+         /* Изменения для верхней формы */
+         #orderForm input, #orderForm select {
             width: 100%;
             padding: 5px;
             margin: 5px 0;
@@ -201,7 +199,6 @@
         #orderForm input[type="submit"]:hover {
             background-color: #28d88c;
         }
-
         /* Стили для нижней формы (оставляем как есть) */
         #orderFormBottom input, #orderFormBottom select {
             width: 100%;
@@ -221,16 +218,46 @@
         #orderFormBottom input[type="submit"]:hover {
             background-color: #28d88c;
         }
+
+        #calculator {
+            background: rgb(228, 246, 234);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        #calculator input, #calculator select {
+            width: 100%;
+            padding: 5px;
+            margin: 5px 0;
+            border: 3px solid #3a7e3f;
+            border-radius: 5px;
+            background-color: rgb(251, 250, 250);
+        }
+
+        #calculator input[type="submit"] {
+            background-color: #4CAF50;
+            color: rgb(2, 11, 5);
+            border: none;
+            cursor: pointer;
+        }
+
+        #calculator input[type="submit"]:hover {
+            background-color: #28d88c;
+        }
+
         /* Медиазапросы */
         @media (max-width: 768px) {
             nav {
-                padding: 10px 0; /* Уменьшаем отступы */
+                padding: 10px 0;
             }
 
             nav a {
-                padding: 10px 15px; /* Уменьшаем отступы для ссылок */
-                font-size: 1em; /* Уменьшаем размер шрифта */
-                margin: 0 5px; /* Уменьшаем отступы между ссылками */
+                padding: 10px 15px;
+                font-size: 1em;
+                margin: 0 5px;
             }
         }
     </style>
@@ -246,23 +273,54 @@
     <a href="o_nac.html">О нас</a>
     <a href="contacts.html">Контакты</a>
 </nav>
-<button onclick="toggleOrderForm('orderForm')">Заказать услугу</button>
-<div id="orderForm">
-    <form>
-        <label for="name">Имя:</label>
-        <input type="text" id="name" name="name" required><br>
-        <label for="phone">Телефон:</label>
-        <input type="text" id="phone" name="phone" required><br>
-        <label for="service">Услуга:</label>
-        <select id="service" name="service" required>
-            <option value="general">Уборка офисов</option>
-            <option value="daily">Уборка территории</option>
-            <option value="carpet">Высотно-промышленный клининг</option>
-            <option value="window">Спецуборка после ремонта или ЧП</option>
-            <option value="window">Уборка территории</option>
+
+<div id="calculator">
+    <form id="calcForm">
+        <label for="place">Какое именно место:</label>
+        <select id="place" name="place" required>
+            <option value="ofic">Уборка офис</option>
+            <option value="territoria">Уборка территории</option>
+            <option value="visota">Высотно-промышленный клининг</option>
+            <option value="spec_and_chp">Спецуборка после ремонта и ЧП</option>
+            <option value="kover">Аренда грязезащитных ковров</option>
         </select><br>
-        <input type="submit" value="Отправить">
+
+        <label for="service">Выбор услуги:</label>
+        <select id="service" name="service" required>
+            <option value="daily">Ежедневная уборка</option>
+            <option value="general">Генеральная уборка</option>
+        </select><br>
+
+        <label for="area">Площадь (м²):</label>
+        <input type="number" id="area" name="area" required><br>
+
+        <label for="urgent">Нужно срочно:</label>
+        <input type="checkbox" id="urgent" name="urgent"><br>
+
+        <input type="submit" value="Рассчитать стоимость">
     </form>
+    <div id="result" style="display: none; margin-top: 20px;">
+        <h3>Примерная стоимость:</h3>
+        <p id="cost"></p>
+    </div>
+</div>
+<button onclick="toggleOrderForm('orderForm')">Заказать услугу</button>
+    <div id="orderForm">
+        <form>
+            <label for="name">Имя:</label>
+            <input type="text" id="name" name="name" required><br>
+            <label for="phone">Телефон:</label>
+            <input type="text" id="phone" name="phone" required><br>
+            <label for="service">Услуга:</label>
+            <select id="service" name="service" required>
+                <option value="general">Уборка офисов</option>
+                <option value="daily">Уборка территории</option>
+                <option value="carpet">Высотно-промышленный клининг</option>
+                <option value="window">Спецуборка после ремонта или ЧП</option>
+                <option value="window">Аренда грязезащитных ковров</option>
+            </select><br>
+            <input type="submit" value="Отправить">
+        </form>
 </div>
 <div class="container">
     <section id="services" class="services">
@@ -275,8 +333,8 @@
 
     <section id="faq" class="faq">
         <h2>Часто задаваемые вопросы</h2>
-        <div class="question" onclick="toggleAnswer(1)">не испортите ли вы мне что-то?</div>
-        <div class="answer" id="answer1">Опыт нашей работы больше 4 года. За это время мы разработали уникальную программу обучения для наших сотрудников. Клинеры знают каким способом и на каких поверхностях нужно использовать специализированную химию.</div>
+        <div class="question" onclick="toggleAnswer(1)">Не испортите ли вы мне что-то?</div>
+        <div class="answer" id="answer1">Опыт нашей работы больше 4 лет. За это время мы разработали уникальную программу обучения для наших сотрудников. Клинеры знают каким способом и на каких поверхностях нужно использовать специализированную химию.</div>
 
         <div class="question" onclick="toggleAnswer(2)"> Нужно ли мне присутствовать во время уборки?</div>
         <div class="answer" id="answer2">Многие присутствуют лично, когда впервые заказывают уборку. Но в следующий раз они предпочитают оставить менеджера и клинеров дома, в освободившееся время предпочитают заниматься более приятными делами.</div>
@@ -295,7 +353,9 @@
 
     <section id="nash_garant" class="nash_garant">
         <h2>Наши гарантии</h2>
+        <p>Наша компания на рынке более 10 лет, за это время было выполнено более 100 гос. конрактов</p>
         <p>Мы понимаем, что вы принимаете работы поздно вечером и впопыхах. Поэтому теперь у Вас есть сутки после уборки квартиры или коттеджа, чтобы все тщательно проверить! Маловероятно, но если вдруг случится так, что вы нашли какие-то недоделки на следующий день после уборки - просто позвоните нам, и мы приедем и бесплатно все исправим.</p>
+        
     </section>
 
     <button onclick="toggleOrderForm('orderFormBottom')">Заказать услугу</button>
@@ -311,7 +371,7 @@
                 <option value="daily">Уборка территории</option>
                 <option value="carpet">Высотно-промышленный клининг</option>
                 <option value="window">Спецуборка после ремонта или ЧП</option>
-                <option value="window">Уборка территории</option>
+                <option value="window">Аренда грязезащитных ковров</option>
             </select><br>
             <input type="submit" value="Отправить">
         </form>
@@ -336,6 +396,42 @@
         const answer = document.getElementById(`answer${id}`);
         answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
     }
+
+    document.getElementById('calcForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const place = document.getElementById('place').value;
+        const service = document.getElementById('service').value;
+        const area = parseFloat(document.getElementById('area').value);
+        const urgent = document.getElementById('urgent').checked;
+
+        let pricePerM2 = 0;
+        if (place === 'ofic') {
+            pricePerM2 = 25;
+        } else if (place === 'territoria') {
+            pricePerM2 = 30;
+        } else if (place === 'visota') {
+            pricePerM2 = 35;
+        } else if (place === 'spec_and_chp') {
+            pricePerM2 = 40;
+        } else if (place === 'kover') {
+            pricePerM2 = 45;
+        }
+
+        let serviceMultiplier = 1;
+        if (service === 'general') {
+            serviceMultiplier = 1.2;
+        }
+
+        let totalCost = pricePerM2 * area * serviceMultiplier;
+
+        if (urgent) {
+            totalCost *= 1.2;
+        }
+
+        document.getElementById('cost').textContent = totalCost.toFixed(2) + ' рублей';
+        document.getElementById('result').style.display = 'block';
+    });
 </script>
 
 </body>
