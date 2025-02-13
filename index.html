@@ -137,7 +137,7 @@
 
         .services, .faq, .reviews, .nash_garant {
             margin-bottom: 40px;
-            background: rgb(237, 239, 237);
+            background: rgb(228, 246, 234);
             padding: 20px;
             border-radius: 40px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -149,7 +149,11 @@
             font-size: 2em;
             margin-bottom: 20px;
         }
-
+        .nash_garant span {
+            color: #0ea76a; /* Зеленый цвет для выделения */
+            font-weight: bold;
+            
+        }
         .services p {
             text-align: justify;
             font-size: 1.1em;
@@ -232,7 +236,7 @@
         }
         #orderForm, #orderFormBottom {
             display: none;
-            background: rgb(196, 191, 199);
+            background: rgb(228, 246, 234);
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -244,7 +248,7 @@
             width: 100%;
             padding: 5px;
             margin: 5px 0;
-            border: 1px solid #ccc; /* Серая рамка */
+            border: 3px solid #3a7e3f; /* Серая рамка */
             border-radius: 5px;
             background-color: white; /* Белый фон */
         }
@@ -264,7 +268,7 @@
             width: 100%;
             padding: 5px;
             margin: 5px 0;
-            border: 3px solid #03844c;
+            border: 3px solid #3a7e3f;
             border-radius: 5px;
         }
 
@@ -307,6 +311,134 @@
         #calculator input[type="submit"]:hover {
             background-color: #28d88c;
         }
+        .container2 {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 10px;
+            background: rgb(228, 246, 234);
+            box-shadow: 0 0 10px rgba(8, 3, 3, 0.1);
+            border-radius: 10px; /* Закругленные углы */
+        }
+
+        .services2 h2 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(246, 246, 246, 0.7); /* Тень для текста */
+            font-weight: 700; /* Жирный шрифт для заголовка */
+            color: #0b0909;
+        }
+
+        .services2 p {
+            font-size: 1.3em;
+            color: rgb(9, 8, 8);
+            text-align: center;
+            padding: 0px 0;
+            font-weight:500;
+            margin-top: 0px;
+        }
+
+        .services2 ul {
+            list-style: none; /* Убираем черные точки (маркеры списка) */
+            padding: 0;
+            display: flex;
+            flex-direction: column; /* Располагаем элементы в колонку */
+            gap: 20px; /* Расстояние между элементами */
+            align-items: center; /* Центрируем элементы */
+        }
+
+        .services2 li {
+            text-align: center;
+            width: 100%; /* Ширина на всю доступную ширину */
+        }
+
+        .services2 a {
+            text-decoration: none; /* Убираем подчеркивание у ссылок */
+            color: inherit; /* Наследуем цвет текста */
+            display: block;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Анимация при наведении */
+            position: relative; /* Контейнер для абсолютного позиционирования текста */
+        }
+
+        .services2 a:hover {
+            transform: scale(1.05); /* Увеличиваем элемент при наведении */
+        }
+
+        .services2 img {
+            width: 250px; /* Фиксированный размер изображений */
+            height: 250px;
+            border-radius: 70%; /* Делаем изображения круглыми */
+            object-fit: cover; /* Сохраняем пропорции изображения */
+            margin-bottom: 10px; /* Отступ между изображением и текстом */
+        }
+
+        .services2 p.text-overlay {
+            position: absolute; /* Абсолютное позиционирование текста */
+            top: 50%; /* Размещаем текст по центру вертикально */
+            left: 50%; /* Размещаем текст по центру горизонтально */
+            transform: translate(-50%, -50%); /* Центрируем текст */
+            margin: 0;
+            font-size: 1.2em; /* Уменьшаем размер текста */
+            color: rgb(251, 252, 252); /* Цвет текста */
+            font-weight: bold; /* Жирный шрифт */
+            text-shadow: 4px 2px 4px rgba(0, 0, 0, 0.7); /* Тень для текста */
+            white-space: normal; /* Разрешаем перенос текста */
+            word-wrap: break-word; /* Перенос длинных слов */
+            max-width: 90%; /* Ограничиваем ширину текста */
+            text-align: center; /* Выравниваем текст по центру */
+        }
+
+        .services2 button {
+            background-color: #046a37;
+            color: rgb(252, 250, 250);
+            border: none;
+            padding: 10px 20px;
+            text-shadow: 2px 2px 4px rgba(15, 2, 2, 0.7); /* Тень для текста */
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+            font-weight: 500; /* Полужирный шрифт для кнопки */
+        }
+
+        .services2 button:hover {
+            background-color: #26c580; /* Цвет кнопки при наведении */
+        }
+
+        /* Стили для модального окна */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .modal-content button {
+            background-color: #055c22;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .modal-content button:hover {
+            background-color: #19b266;
+        }
 
         /* Медиазапросы */
         @media (max-width: 768px) {
@@ -329,7 +461,6 @@
 </header>
 
 <nav>
-    <a href="nash_uslugi.html">Услуги</a>
     <a href="o_nac.html">О нас</a>
     <a href="contacts.html">Контакты</a>
 </nav>
@@ -350,6 +481,7 @@
     <img src="images/главная/photo_2025-02-12_18-12-39 (2).jpg" alt="Оплата">
     <p>Оплата <span>после</span> оказания услуг</p>
 </div>
+
 <div id="calculator">
     <form id="calcForm">
         <label for="place">Какое именно место:</label>
@@ -359,11 +491,12 @@
             <option value="visota">Высотно-промышленный клининг</option>
             <option value="spec_and_chp">Спецуборка после ремонта и ЧП</option>
             <option value="kover">Аренда грязезащитных ковров</option>
+            <option value="kover">Дератизация и дезинфекция</option>
         </select><br>
 
         <label for="service">Выбор услуги:</label>
         <select id="service" name="service" required>
-            <option value="daily">Ежедневная уборка</option>
+            <option value="daily">Поддерживающая уборка</option>
             <option value="general">Генеральная уборка</option>
         </select><br>
 
@@ -394,6 +527,7 @@
                 <option value="carpet">Высотно-промышленный клининг</option>
                 <option value="window">Спецуборка после ремонта или ЧП</option>
                 <option value="window">Аренда грязезащитных ковров</option>
+                <option value="kover">Дератизация и дезинфекция</option>
             </select><br>
             <input type="submit" value="Отправить">
         </form>
@@ -406,7 +540,76 @@
             <img src="images/главная/photo_2025-02-04_22-14-56.jpg" alt="Генеральная уборка дома">
         </div>
     </section>
+</div>
+<div class="container2">
+    <section id="services2" class="services2">
+        <h2>Наши услуги:</h2>
+        <ul>
+            <li>
+                <a href="ofic.html">
+                    <img src="images/наши услуги/офисс/photo_8_2025-02-04_21-04-49.jpg" alt="Уборка офисов">
+                    <p class="text-overlay">Уборка офисов</p>
+                </a>
+                <button onclick="openModal('Комплексная уборка офисных помещений, включая рабочие места, санузлы, кухни и общие зоны.')">Узнать больше</button>
+            </li>
+            <li>
+                <a href="territoria.html">
+                    <img src="images/наши услуги/территория/photo_7_2025-02-04_21-04-49.jpg" alt="Уборка территории">
+                    <p class="text-overlay">Уборка территории</p>
+                </a>
+                <button onclick="openModal('Уборка прилегающих территорий (парковки, тротуары, входные группы).')">Узнать больше</button>
+            </li>
+            <li>
+                <a href="visota.html">
+                    <img src="images/наши услуги/высота/photo_1_2025-02-04_21-04-33.jpg" alt="Высотно-промышленный клининг">
+                    <p class="text-overlay">Высотно-промышленный клининг</p>
+                </a>
+                <button onclick="openModal('Уборка на высоте (фасады зданий, витрины, окна, крыши).')">Узнать больше</button>
+            </li>
+            <li>
+                <a href="spec_and_chp.html">
+                    <img src="images/наши услуги/чп и ремонт/photo_2_2025-02-04_21-04-49.jpg" alt="Спецуборка после ремонта или ЧП">
+                    <p class="text-overlay">Спецуборка после ремонта или ЧП</p>
+                </a>
+                <button onclick="openModal(' Уборка после строительных работ, пожаров, затоплений и других чрезвычайных ситуаций.')">Узнать больше</button>
+            </li>
+            <li>
+                <a href="kover.html">
+                    <img src="images/наши услуги/ковры/photo_13_2025-02-04_21-04-49.jpg" alt="Аренда грязезащитных ковров">
+                    <p class="text-overlay">Аренда грязезащитных ковров</p>
+                </a>
+                <button onclick="openModal('Предоставление в аренду ковров для защиты помещений от грязи и влаги.')">Узнать больше</button>
+            </li>
+            <li>
+                <a href="kover.html">
+                    <img src="images/наши услуги/дезинфекция/photo_2025-02-13_15-00-31.jpg" alt="дератизация и дезинфекция">
+                    <p class="text-overlay">Дератизация и дезинфекция</p>
+                </a>
+                <button onclick="openModal('борьба с грызунами и уничтожение вредных бактерий, вирусов и микробов')">Узнать больше</button>
+            </li>
+        </ul>
+    </section>
+</div>
 
+<!-- Модальное окно -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <p id="modal-text"></p>
+        <button onclick="closeModal()">Закрыть</button>
+    </div>
+</div>
+
+<script>
+    // Функции для работы с модальным окном
+    function openModal(text) {
+        document.getElementById('modal-text').innerText = text;
+        document.getElementById('modal').style.display = 'flex';
+    }
+
+    function closeModal() {
+        document.getElementById('modal').style.display = 'none';
+    }
+</script>
     <section id="faq" class="faq">
         <h2>Часто задаваемые вопросы</h2>
         <div class="question" onclick="toggleAnswer(1)">Не испортите ли вы мне что-то?</div>
@@ -429,8 +632,8 @@
 
     <section id="nash_garant" class="nash_garant">
         <h2>Наши гарантии</h2>
-        <p>Наша компания на рынке более 10 лет, за это время было выполнено более 100 гос. конрактов</p>
-        <p>Мы понимаем, что вы принимаете работы поздно вечером и впопыхах. Поэтому теперь у Вас есть сутки после уборки квартиры или коттеджа, чтобы все тщательно проверить! Маловероятно, но если вдруг случится так, что вы нашли какие-то недоделки на следующий день после уборки - просто позвоните нам, и мы приедем и бесплатно все исправим.</p>
+        <p>Наша компания на рынке более <span>10 лет</span>, за это время было выполнено более <span>100 гос. конрактов.</span></p>
+        <p>Мы понимаем, что вы принимаете работы поздно вечером и впопыхах. Поэтому теперь у Вас есть сутки после уборки, чтобы все тщательно проверить! Маловероятно, но если вдруг случится так, что вы нашли какие-то недоделки на следующий день после уборки - просто позвоните нам, и мы приедем и бесплатно все исправим.</p>
         
     </section>
 
@@ -448,6 +651,7 @@
                 <option value="carpet">Высотно-промышленный клининг</option>
                 <option value="window">Спецуборка после ремонта или ЧП</option>
                 <option value="window">Аренда грязезащитных ковров</option>
+                <option value="kover">Дератизация и дезинфекция</option>
             </select><br>
             <input type="submit" value="Отправить">
         </form>

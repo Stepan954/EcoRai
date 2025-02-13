@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Уборка офисов</title>
+    <title>Аренда грязезащитных ковров</title>
     <!-- Подключение Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -34,7 +34,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('images/наши услуги/офисс/photo_11_2025-02-04_21-04-49.jpg');
+            background-image: url('images/наши услуги/ковры/photo_14_2025-02-04_21-04-49.jpg');
             background-size: cover;
             background-position: center;
             opacity: 0.5;
@@ -48,7 +48,6 @@
             margin: 0;
         }
 
-        
         nav {
             display: flex;
             justify-content: center;
@@ -88,14 +87,13 @@
 
         .service img {
             width: 100%;
-            max-width: 600px;
+            max-width: 600px; /* Уменьшенный размер картинки */
             height: auto;
             border-radius: 10px;
             margin: 20px 0;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease; /* Анимация при наведении */
         }
 
-      
         .service h1, .service h2 {
             font-size: 2em;
             margin-bottom: 20px;
@@ -107,7 +105,7 @@
         }
 
         .service p {
-            font-size: 1.1em;
+            font-size: 1.1em; /* Единый размер текста */
             text-align: justify;
             line-height: 1.8;
             margin-bottom: 20px;
@@ -118,8 +116,9 @@
         }
 
         .service ul {
-            list-style-type: none; /* Убираем черные точки */
-            padding-left: 20px; /* Уменьшаем отступ слева */
+            list-style-type: disc;
+            list-style: none;
+            padding-left: 40px;
             background-color: #f4f5f5;
             text-align: left;
             margin-bottom: 20px;
@@ -130,38 +129,33 @@
 
         .service ul li {
             margin-bottom: 10px;
-            position: relative;
-            padding-left: 20px; /* Добавляем отступ для текста */
-        }
-
-        .service ul li::before {
-            content: ''; /* Убираем стандартные маркеры */
         }
 
         .image-row {
             display: flex;
             justify-content: space-between;
-            gap: 10px;
+            gap: 10px; /* Расстояние между картинками */
             margin: 20px 0;
         }
 
         .image-row img {
-            width: 32%;
+            width: 32%; /* Равномерное распределение ширины */
             border-radius: 10px;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease; /* Анимация при наведении */
         }
 
         .image-row img:hover {
-            transform: scale(1.05);
+            transform: scale(1.05); /* Увеличение картинки при наведении */
         }
 
         footer {
-            background-color: #046b44;/*низ сайта цвет фона*/
-            color: rgb(9, 8, 8);/*низ сайта цвет текста*/
+            background-color: #1b7744;
+            color: rgb(9, 8, 8);
             text-align: center;
             padding: 20px 0;
             margin-top: 40px;
         }
+
 
         button {
             background-color: #47cf82;
@@ -256,7 +250,6 @@
         #calculator input[type="submit"]:hover {
             background-color: #28d88c;
         }
-
         /* Медиазапросы */
         @media (max-width: 768px) {
             nav {
@@ -274,46 +267,48 @@
 <body>
 
     <header>
-        <h1>Уборка офисов</h1>
+        <h1>Аренда грязезащитных ковров</h1>
     </header>
     
     <nav>
         <a href="index.html">Главная</a>
+
         <a href="o_nac.html">О нас</a>
         <a href="contacts.html">Контакты</a>
     </nav>
-    <div id="calculator">
-        <form id="calcForm">
-            <label for="place">Какое именно место:</label>
-            <select id="place" name="place" required>
-                <option value="ofic">Уборка офис</option>
-                <option value="territoria">Уборка территории</option>
-                <option value="visota">Высотно-промышленный клининг</option>
-                <option value="spec_and_chp">Спецуборка после ремонта и ЧП</option>
-                <option value="kover">Аренда грязезащитных ковров</option>
-                <option value="kover">Дератизация и дезинфекция</option>
-            </select><br>
-    
-            <label for="service">Выбор услуги:</label>
-            <select id="service" name="service" required>
-                <option value="daily">Поддерживающая уборка</option>
-                <option value="general">Генеральная уборка</option>
-            </select><br>
-    
-            <label for="area">Площадь (м²):</label>
-            <input type="number" id="area" name="area" required><br>
-    
-            <label for="urgent">Нужно срочно:</label>
-            <input type="checkbox" id="urgent" name="urgent"><br>
-    
-            <input type="submit" value="Рассчитать стоимость">
-        </form>
-        <div id="result" style="display: none; margin-top: 20px;">
-            <h3>Примерная стоимость:</h3>
-            <p id="cost"></p>
-        </div>
+
+<div id="calculator">
+    <form id="calcForm">
+        <label for="place">Какое именно место:</label>
+        <select id="place" name="place" required>
+            <option value="ofic">Уборка офис</option>
+            <option value="territoria">Уборка территории</option>
+            <option value="visota">Высотно-промышленный клининг</option>
+            <option value="spec_and_chp">Спецуборка после ремонта и ЧП</option>
+            <option value="kover">Аренда грязезащитных ковров</option>
+            <option value="kover">Дератизация и дезинфекция</option>
+        </select><br>
+
+        <label for="service">Выбор услуги:</label>
+        <select id="service" name="service" required>
+            <option value="daily">Поддерживающая уборка</option>
+            <option value="general">Генеральная уборка</option>
+        </select><br>
+
+        <label for="area">Площадь (м²):</label>
+        <input type="number" id="area" name="area" required><br>
+
+        <label for="urgent">Нужно срочно:</label>
+        <input type="checkbox" id="urgent" name="urgent"><br>
+
+        <input type="submit" value="Рассчитать стоимость">
+    </form>
+    <div id="result" style="display: none; margin-top: 20px;">
+        <h3>Примерная стоимость:</h3>
+        <p id="cost"></p>
     </div>
-    <button onclick="toggleOrderForm('orderForm')">Заказать услугу</button>
+</div>
+<button onclick="toggleOrderForm('orderForm')">Заказать услугу</button>
     <div id="orderForm">
         <form>
             <label for="name">Имя:</label>
@@ -334,73 +329,33 @@
 </div>
     <div class="container">
         <div class="service">
-            <img src="images/наши услуги/офисс/photo_11_2025-02-04_21-04-49.jpg" alt="Генеральная уборка дома">
-            <p><strong>Уборка в офисе</strong> — это комплексная задача, которая включает в себя множество этапов и видов работ. Она направлена на поддержание чистоты, порядка и гигиены в рабочем пространстве.</p>
+            <img src="images/наши услуги/ковры/photo_14_2025-02-04_21-04-58.jpg" alt="Генеральная уборка дома">
+            <p><strong>Аренда грязезащитных ковров</strong> — это удобная услуга, которая позволяет поддерживать чистоту в помещении, защищая его от грязи, пыли и влаги. Мы предоставляем качественные ковры различных размеров и дизайнов, которые идеально вписываются в интерьер и эффективно справляются с загрязнениями.</p>
            
             <ul>
-                <li><strong>Уборка рабочих мест:</strong> протирка столов, мониторов, клавиатур, телефонов и других поверхностей,
-                    удаление пыли с оргтехники (принтеры, сканеры, МФУ),
-                    очистка мусорных корзин и замена пакетов,
-                    протирка стульев и другой мебели,
-                    перемещение мебели и уборка под ней,
-                    очистка вентиляционных решеток и кондиционеров,
-                    мытье стен и потолков.</li>
-                <li><strong>Уборка полов:</strong> сухая уборка полов,
-                    влажная уборка полов ,
-                    удаление пятен и загрязнений,
-                    очистка ковровых покрытий (пылесосом или паром),
-                    химчистка ковровых покрытий,
-                    полировка полов (если требуется).</li>
-                <li><strong>Уборка кухни/зоны приема пищи:</strong> мытье столешниц, раковин и кранов,
-                    очистка микроволновой печи, холодильника и других приборов,
-                    мытье посуды (если нет посудомоечной машины),
-                    очистка мусорного ведра и замена пакета,
-                    мытье внутренних поверхностей шкафов,
-                    мытье плиты и вытяжки.</li>
-                <li><strong>Уборка санузлов:</strong> мытье и дезинфекция унитазов, раковин, кранов и зеркал,
-                    заправка туалетной бумаги, мыла, бумажных полотенец,
-                    очистка мусорных корзин,
-                    мытье полов и стен,
-                    очистка вентиляционных решеток,
-                    дезинфекция всех поверхностей,
-                    очистка канализационных стоков,
-                    мытье кафеля и затирки швов.</li>
-                <li><strong>Уборка общего пространства:</strong> протирка пыли с подоконников, дверей, выключателей,
-                    очистка стеклянных поверхностей (двери, перегородки),
-                    уборка ресепшена (стол, стойка, декор),
-                    мытье светильников и люстр,
-                    очистка жалюзи и штор,
-                    протирка плинтусов,
-                    мытье окон и стеклянных перегородок,
-                    очистка осветительных приборов.</li>
+                <li><strong>Подбор ковров:</strong> Мы поможем выбрать оптимальный размер, тип и дизайн ковров, исходя из ваших потребностей и особенностей помещения.</li>
+                <li><strong>Доставка и установка:</strong> Наши специалисты привезут ковры и установят их в нужных зонах.</li>
+                <li><strong>Регулярное обслуживание:</strong> мМы обеспечиваем своевременную замену и чистку ковров, чтобы они всегда оставались эффективными и эстетичными.</li>
+                <li><strong>Контроль качества:</strong> Наши менеджеры следят за состоянием ковров и оперативно решают любые вопросы.</li>
             </ul>
             <h2>Интересный факт.</h2>
             <p>
-                Грязные офисы снижают продуктивность сотрудников.
-Исследования показывают, что беспорядок и грязь в офисе могут значительно снизить продуктивность сотрудников. Например, исследование, проведенное Princeton University, обнаружило, что визуальный беспорядок (например, разбросанные бумаги, пыль на столах, переполненные мусорные корзины) перегружает мозг, затрудняя концентрацию и обработку информации.
+                Знаете ли вы, что грязезащитные ковры способны удерживать до 80% грязи и влаги, предотвращая их распространение по помещению? Это делает их незаменимыми в местах с высокой проходимостью, таких как офисы, торговые центры и рестораны.
             </p>
             <h2>На стоимость влияет:</h2>
             <ul>
-                <li><strong>- Площадь офиса.</li>
-                <li><strong>- Тип уборки (ежедневная, генеральная).</li>
-                <li><strong>- Сложность работы.</li>
-                <li><strong>- Количество сотрудников (работников офиса).</li>
-                <li><strong>- Наличие специальных зон(кухня, санузлы, переговорные).</li>
+                <li><strong>- Размер и количество ковров.</li>
+                <li><strong>- Срок аренды (краткосрочная или долгосрочная).
+                </li>
+                <li><strong>- Тип покрытия (стандартное или премиальное).</li>
+                <li><strong>- Частота замены и обслуживания.</li>
             </ul>
-            <h2>Как мы делаем уборку в офисе:</h2>
+            <h2>Как мы используем грязезащитные ковры:</h2>
             <div class="image-row">
-                <img src="images/наши услуги/офисс/photo_2025-02-07_22-16-24.jpg" alt="Уборка офиса 1">
-                <img src="images/наши услуги/офисс/photo_2025-02-07_22-16-25.jpg" alt="Уборка офиса 2">
-                <img src="images/наши услуги/офисс/photo_2025-02-07_22-17-27.jpg" alt="Уборка офиса 3">
+                <img src="images/наши услуги/ковры/photo_13_2025-02-04_21-04-49.jpg" alt="Уборка офиса 1">
+                <img src="images/наши услуги/ковры/photo_2025-02-10_12-45-30 (2).jpg" alt="Уборка офиса 2">
+                <img src="images/наши услуги/ковры/photo_10_2025-02-04_21-04-49.jpg" alt="Уборка офиса 3">
             </div>
-            <h2>При заказе уборки офиса, так же заказывают:</h2>
-            <ul>
-                <li><strong>- Мытье окон</li>
-                <li><strong>- Химчистка ковров и мягкой мебели</li>
-                <li><strong>- Чистка вентиляционных решёток и кондиционера</li>
-                <li><strong>- Уход за растениями</li>
-                <li><strong>- Ароматизация помещения</li>
-            </ul>
         </div>
     </div>
 
@@ -440,7 +395,6 @@
         answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
     }
 </script>
-
 <footer>
     <p>&copy; 2025 Клининговое агентство "EcoRai". Все права защищены.</p>
 </footer>

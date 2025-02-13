@@ -69,7 +69,67 @@
         nav a:hover {
             background-color: #1ab96f;
         }
+        .logo-section {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
 
+        .logo-item {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .logo-item img {
+            width: 80px;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 50px;
+        }
+
+        .logo-item p {
+            font-size: 1.1em;
+            margin: 0;
+            color: #f4f7f4; 
+        }
+
+        .logo-item span {
+            color: #f4f6f7; /* Зеленый цвет для выделения */
+            font-weight: bold;
+        }
+        /* Стили для второго логотипа над кнопкой */
+        .logo-above-button {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .logo-above-button img {
+            width: 80px;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 50px;
+        }
+
+        .logo-above-button p {
+            font-size: 1.1em;
+            margin: 0;
+            color: #f4f7f4;
+        }
+
+        .logo-above-button span {
+            color: #f4f6f7;
+            font-weight: bold;
+        }
+        .logo-item :hover {
+            transform: scale(1.05); /* Увеличиваем элемент при наведении */
+        }
+        .logo-above-button :hover {
+            transform: scale(1.05); /* Увеличиваем элемент при наведении */
+        }
         .container {
             padding: 20px;
             max-width: 800px;
@@ -161,7 +221,7 @@
 
         button {
             background-color: #47cf82;
-            color: rgb(8, 8, 8);
+            color: rgb(7, 6, 6);
             border: none;
             padding: 15px 30px;
             font-size: 1rem;
@@ -174,11 +234,13 @@
 
         button:hover {
             background-color: #3caa43;
+            
         }
 
         #orderForm, #orderFormBottom {
             display: none;
-            background: rgb(196, 191, 199);
+            background: rgb(228, 246, 234);
+            color: #080707;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -191,9 +253,9 @@
             width: 100%;
             padding: 5px;
             margin: 5px 0;
-            border: 1px solid #ccc; /* Серая рамка */
+            border: 3px solid #3a7e3f; /* Серая рамка */
             border-radius: 5px;
-            background-color: white; /* Белый фон */
+            background-color: rgb(255, 255, 255); /* Белый фон */
         }
 
         #orderForm input[type="submit"] {
@@ -248,9 +310,25 @@
     
     <nav>
         <a href="index.html">Главная</a>
-        <a href="nash_uslugi.html">Услуги</a>
         <a href="contacts.html">Контакты</a>
     </nav>
+    <!-- Логотипы с подписями -->
+<div class="logo-section">
+    <div class="logo-item">
+        <img src="images/главная/photo_2025-02-12_18-12-39 (3).jpg" alt="Страхование">
+        <p><span>100%</span> страхование имущества заказчика</p>
+    </div>
+    <div class="logo-item">
+        <img src="images/главная/photo_2025-02-12_18-12-39.jpg" alt="Качество">
+        <p><span>4.87</span> средний балл качества</p>
+    </div>
+</div>
+
+<!-- Второй логотип над кнопкой -->
+<div class="logo-above-button">
+    <img src="images/главная/photo_2025-02-12_18-12-39 (2).jpg" alt="Оплата">
+    <p>Оплата <span>после</span> оказания услуг</p>
+</div>
     <button onclick="toggleOrderForm('orderForm')">Заказать услугу</button>
     <div id="orderForm">
         <form>
@@ -265,6 +343,7 @@
                 <option value="carpet">Высотно-промышленный клининг</option>
                 <option value="window">Спецуборка после ремонта или ЧП</option>
                 <option value="window">Аренда грязезащитных ковров</option>
+                <option value="kover">Дератизация и дезинфекция</option>
             </select><br>
             <input type="submit" value="Отправить">
         </form>
@@ -309,6 +388,7 @@
                     <option value="carpet">Высотно-промышленный клининг</option>
                     <option value="window">Спецуборка после ремонта или ЧП</option>
                     <option value="window">Аренда грязезащитных ковров</option>
+                    <option value="kover">Дератизация и дезинфекция</option>
                 </select><br>
                 <input type="submit" value="Отправить">
             </form>

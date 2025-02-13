@@ -14,7 +14,6 @@
             background-image: url('images/просто крутые/photo_4_2025-02-04_21-04-49.jpg');
             color: #040202;
             line-height: 1.6;
-            text-align: center; /* Центрирование текста */
             font-size: 18px; /* Увеличенный размер текста */
         }
 
@@ -139,6 +138,7 @@
             margin: 50px auto;
             padding: 20px;
             border-radius: 40px;
+            text-align: center; /* Центрирование текста */
             background: rgb(212, 232, 212);
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
@@ -205,23 +205,21 @@
         button:hover {
             background-color: #3caa43;
         }
-
         #orderForm, #orderFormBottom {
             display: none;
-            background: rgb(196, 191, 199);
+            background: rgb(228, 246, 234);
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             max-width: 400px;
             margin: 20px auto;
         }
-
-        /* Изменения для верхней формы */
-        #orderForm input, #orderForm select {
+         /* Изменения для верхней формы */
+         #orderForm input, #orderForm select {
             width: 100%;
             padding: 5px;
             margin: 5px 0;
-            border: 1px solid #ccc; /* Серая рамка */
+            border: 3px solid #3a7e3f; /* Серая рамка */
             border-radius: 5px;
             background-color: white; /* Белый фон */
         }
@@ -236,13 +234,12 @@
         #orderForm input[type="submit"]:hover {
             background-color: #28d88c;
         }
-
         /* Стили для нижней формы (оставляем как есть) */
         #orderFormBottom input, #orderFormBottom select {
             width: 100%;
             padding: 5px;
             margin: 5px 0;
-            border: 3px solid #03844c;
+            border: 3px solid #3a7e3f;
             border-radius: 5px;
         }
 
@@ -256,9 +253,6 @@
         #orderFormBottom input[type="submit"]:hover {
             background-color: #28d88c;
         }
-
-        
-
         /* Медиазапросы */
         @media (max-width: 768px) {
             nav {
@@ -289,7 +283,6 @@
 
 <nav>
     <a href="index.html">Главная</a>
-    <a href="nash_uslugi.html">Услуги</a>
     <a href="o_nac.html">О нас</a>
 </nav>
 
@@ -311,23 +304,24 @@
     <p>Оплата <span>после</span> оказания услуг</p>
 </div>
 
-<button onclick="toggleOrderForm('orderForm')">Заказать услугу</button>
-<div id="orderForm">
-    <form>
-        <label for="name">Имя:</label>
-        <input type="text" id="name" name="name" required><br>
-        <label for="phone">Телефон:</label>
-        <input type="text" id="phone" name="phone" required><br>
-        <label for="service">Услуга:</label>
-        <select id="service" name="service" required>
-            <option value="general">Уборка офисов</option>
-            <option value="daily">Уборка территории</option>
-            <option value="carpet">Высотно-промышленный клининг</option>
-            <option value="window">Спецуборка после ремонта или ЧП</option>
-            <option value="window">Аренда грязезащитных ковров</option>
-        </select><br>
-        <input type="submit" value="Отправить">
-    </form>
+ <button onclick="toggleOrderForm('orderForm')">Заказать услугу</button>
+    <div id="orderForm">
+        <form>
+            <label for="name">Имя:</label>
+            <input type="text" id="name" name="name" required><br>
+            <label for="phone">Телефон:</label>
+            <input type="text" id="phone" name="phone" required><br>
+            <label for="service">Услуга:</label>
+            <select id="service" name="service" required>
+                <option value="general">Уборка офисов</option>
+                <option value="daily">Уборка территории</option>
+                <option value="carpet">Высотно-промышленный клининг</option>
+                <option value="window">Спецуборка после ремонта или ЧП</option>
+                <option value="window">Аренда грязезащитных ковров</option>
+                <option value="kover">Дератизация и дезинфекция</option>
+            </select><br>
+            <input type="submit" value="Отправить">
+        </form>
 </div>
 <div class="container">
     <div class="service">
@@ -373,6 +367,7 @@
             <option value="carpet">Высотно-промышленный клининг</option>
             <option value="window">Спецуборка после ремонта или ЧП</option>
             <option value="window">Аренда грязезащитных ковров</option>
+            <option value="kover">Дератизация и дезинфекция</option>
         </select><br>
         <input type="submit" value="Отправить">
     </form>
