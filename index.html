@@ -165,7 +165,7 @@
             width: 100%;
             max-width: 800px;
             height: auto;
-            border-radius: 10px;
+            border-radius: 20px;
             margin: 20px 0;
         }
 
@@ -286,30 +286,58 @@
         #calculator {
             background: rgb(228, 246, 234);
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
+            border-radius: 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
             margin: 20px auto;
         }
 
-        #calculator input, #calculator select {
-            width: 100%;
-            padding: 5px;
-            margin: 5px 0;
-            border: 3px solid #3a7e3f;
-            border-radius: 5px;
-            background-color: rgb(251, 250, 250);
+        #calculatorForm label {
+            display: block;
+            margin: 10px 0 5px;
         }
 
-        #calculator input[type="submit"] {
+        #calculatorForm input, #calculatorForm select {
+            width: 90%;
+            padding: 10px;
+            margin: 5px 0 10px;
+            border: 2px solid #3a7e3f;
+            border-radius: 10px;
+            background-color: white;
+        }
+
+        #calculatorForm input[type="checkbox"] {
+            width: auto;
+            transform: scale(1.5);
+            margin-left: 10px;
+        }
+
+        #calculatorForm button {
             background-color: #4CAF50;
-            color: rgb(2, 11, 5);
+            color: white;
             border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
             cursor: pointer;
+            font-size: 1em;
         }
 
-        #calculator input[type="submit"]:hover {
-            background-color: #28d88c;
+        #calculatorForm button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        .error {
+            border-color: red !important;
         }
         .container2 {
             max-width: 800px;
@@ -483,36 +511,21 @@
 </div>
 
 <div id="calculator">
-    <form id="calcForm">
-        <label for="place">Какое именно место:</label>
-        <select id="place" name="place" required>
-            <option value="ofic">Уборка офис</option>
-            <option value="territoria">Уборка территории</option>
-            <option value="visota">Высотно-промышленный клининг</option>
-            <option value="spec_and_chp">Спецуборка после ремонта и ЧП</option>
-            <option value="kover">Аренда грязезащитных ковров</option>
-            <option value="kover">Дератизация и дезинфекция</option>
-        </select><br>
-
-        <label for="service">Выбор услуги:</label>
-        <select id="service" name="service" required>
-            <option value="daily">Поддерживающая уборка</option>
-            <option value="general">Генеральная уборка</option>
-        </select><br>
-
-        <label for="area">Площадь (м²):</label>
-        <input type="number" id="area" name="area" required><br>
-
-        <label for="urgent">Нужно срочно:</label>
-        <input type="checkbox" id="urgent" name="urgent"><br>
-
-        <input type="submit" value="Рассчитать стоимость">
-    </form>
-    <div id="result" style="display: none; margin-top: 20px;">
-        <h3>Примерная стоимость:</h3>
-        <p id="cost"></p>
+    <h2>Расчёт стоимости услуги</h2>
+    <label for="serviceType">Вид услуги:</label>
+    <select id="serviceType" onchange="updateForm()">
+        <option value="officeCleaning">Уборка офиса</option>
+        <option value="territoryCleaning">Уборка территории</option>
+        <option value="industrialCleaning">Высотно-промышленный клининг</option>
+        <option value="specialCleaning">Спецуборка после ремонта и ЧП</option>
+        <option value="carpetRental">Аренда грязезащитных ковров</option>
+        <option value="disinfection">Дератизация и дезинфекция</option></select>
+        <form id="calculatorForm">
+            <!-- Форма будет динамически обновляться в зависимости от выбранного вида услуги -->
+        </form>
+        <button onclick="calculateCost()">Рассчитать стоимость</button>
+        <div id="result"></div>
     </div>
-</div>
 <button onclick="toggleOrderForm('orderForm')">Заказать услугу</button>
     <div id="orderForm">
         <form>
@@ -663,55 +676,133 @@
 </footer>
 
 <script>
-    function toggleOrderForm(formId) {
-        const orderForm = document.getElementById(formId);
-        if (orderForm.style.display === 'block') {
-            orderForm.style.display = 'none'; // Закрыть форму
-        } else {
-            orderForm.style.display = 'block'; // Открыть форму
+    function updateForm() {
+        const serviceType = document.getElementById('serviceType').value;
+        const form = document.getElementById('calculatorForm');
+        form.innerHTML = `
+                <label for="cleaningType">Вид уборки:</label>
+                <select id="cleaningType">
+                    <option value="1">Поддерживающая</option>
+                    <option value="2">Генеральная</option>
+                </select>
+                <label for="area">Площадь (м²):</label>
+                <input type="number" id="area">
+                <label for="urgent">Нужно срочно:</label>
+                <input type="checkbox" id="urgent">
+            `;
+
+        if (serviceType === 'officeCleaning') {
+            form.innerHTML = `
+                <label for="cleaningType">Вид уборки:</label>
+                <select id="cleaningType">
+                    <option value="1">Поддерживающая</option>
+                    <option value="2">Генеральная</option>
+                </select>
+                <label for="area">Площадь (м²):</label>
+                <input type="number" id="area">
+                <label for="urgent">Нужно срочно:</label>
+                <input type="checkbox" id="urgent">
+            `;
+        } else if (serviceType === 'territoryCleaning') {
+            form.innerHTML = `
+                <label for="cleaningType">Вид уборки:</label>
+                <select id="cleaningType">
+                    <option value="1">Поддерживающая</option>
+                    <option value="2">Генеральная</option>
+                </select>
+                <label for="surfaceType">Вид покрытия:</label>
+                <select id="surfaceType">
+                    <option value="1.1">Твердое покрытие</option>
+                    <option value="1.3">Газон</option>
+                </select>
+                <label for="area">Площадь (м²):</label>
+                <input type="number" id="area">
+                <label for="urgent">Нужно срочно:</label>
+                <input type="checkbox" id="urgent">
+            `;
+        } else if (serviceType === 'industrialCleaning') {
+            form.innerHTML = `
+                <label for="cleaningType">Вид уборки:</label>
+                <select id="cleaningType">
+                    <option value="1">Поддерживающая</option>
+                    <option value="2">Генеральная</option>
+                </select>
+                <label for="floors">Количество этажей:</label>
+                <input type="number" id="floors">
+                <label for="area">Площадь (м²):</label>
+                <input type="number" id="area">
+                <label for="urgent">Нужно срочно:</label>
+                <input type="checkbox" id="urgent">
+            `;
+        } else if (serviceType === 'specialCleaning') {
+            form.innerHTML = `
+                <label for="afterWhat">После чего:</label>
+                <select id="afterWhat">
+                    <option value="1.4">Ремонт</option>
+                    <option value="1.5">Затопление</option>
+                    <option value="1.6">Пожар</option>
+                    <option value="1.7">Землетрясение</option>
+                </select>
+                <label for="area">Площадь (м²):</label>
+                <input type="number" id="area">
+                <label for="urgent">Нужно срочно:</label>
+                <input type="checkbox" id="urgent">
+            `;
+        } else if (serviceType === 'carpetRental') {
+            form.innerHTML = `
+                <label for="quantity">Количество (шт.):</label>
+                <input type="number" id="quantity">
+                <label for="area">Площадь (м²):</label>
+                <input type="number" id="area">
+                <label for="urgent">Нужно срочно:</label>
+                <input type="checkbox" id="urgent">
+            `;
+        } else if (serviceType === 'disinfection') {
+            form.innerHTML = `
+                <label for="area">Площадь (м²):</label>
+                <input type="number" id="area">
+                <label for="urgent">Нужно срочно:</label>
+                <input type="checkbox" id="urgent">
+            `;
         }
     }
 
-    function toggleAnswer(id) {
-        const answer = document.getElementById(`answer${id}`);
-        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+    function calculateCost() {
+        const serviceType = document.getElementById('serviceType').value;const area = parseFloat(document.getElementById('area').value);
+    const urgent = document.getElementById('urgent').checked ? 1.2 : 1;
+    let cost = 0;
+
+    if (isNaN(area)) {
+        document.getElementById('area').classList.add('error');
+        document.getElementById('result').innerText = 'Пожалуйста, заполните все поля';
+        return;
+    } else {
+        document.getElementById('area').classList.remove('error');
     }
 
-    document.getElementById('calcForm').addEventListener('submit', function(event) {
-        event.preventDefault();
+    if (serviceType === 'officeCleaning') {
+        const cleaningType = parseFloat(document.getElementById('cleaningType').value);
+        cost = 30 * cleaningType * area * urgent;
+    } else if (serviceType === 'territoryCleaning') {
+        const cleaningType = parseFloat(document.getElementById('cleaningType').value);
+        const surfaceType = parseFloat(document.getElementById('surfaceType').value);
+        cost = 35 * cleaningType * surfaceType * area * urgent;
+    } else if (serviceType === 'industrialCleaning') {
+        const cleaningType = parseFloat(document.getElementById('cleaningType').value);
+        const floors = parseFloat(document.getElementById('floors').value);
+        cost = 40 * cleaningType * floors * area * urgent;
+    } else if (serviceType === 'specialCleaning') {
+        const afterWhat = parseFloat(document.getElementById('afterWhat').value);
+        cost = 45 * afterWhat * area * urgent;
+    } else if (serviceType === 'carpetRental') {
+        const quantity = parseFloat(document.getElementById('quantity').value);
+        cost = 50 * quantity * area * urgent;
+    } else if (serviceType === 'disinfection') {
+        cost = 55 * area * urgent;
+    }
 
-        const place = document.getElementById('place').value;
-        const service = document.getElementById('service').value;
-        const area = parseFloat(document.getElementById('area').value);
-        const urgent = document.getElementById('urgent').checked;
-
-        let pricePerM2 = 0;
-        if (place === 'ofic') {
-            pricePerM2 = 25;
-        } else if (place === 'territoria') {
-            pricePerM2 = 30;
-        } else if (place === 'visota') {
-            pricePerM2 = 35;
-        } else if (place === 'spec_and_chp') {
-            pricePerM2 = 40;
-        } else if (place === 'kover') {
-            pricePerM2 = 45;
-        }
-
-        let serviceMultiplier = 1;
-        if (service === 'general') {
-            serviceMultiplier = 1.2;
-        }
-
-        let totalCost = pricePerM2 * area * serviceMultiplier;
-
-        if (urgent) {
-            totalCost *= 1.2;
-        }
-
-        document.getElementById('cost').textContent = totalCost.toFixed(2) + ' рублей';
-        document.getElementById('result').style.display = 'block';
-    });
+    document.getElementById('result').innerText = `Стоимость услуги: ${cost.toFixed(2)} рублей`;
+}
 </script>
 
 </body>
