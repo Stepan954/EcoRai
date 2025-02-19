@@ -213,15 +213,15 @@
 
         footer {
             background-color: #046b44;/*низ сайта цвет фона*/
-            color: rgb(9, 8, 8);/*низ сайта цвет текста*/
+            color: rgb(248, 247, 247);/*низ сайта цвет текста*/
             text-align: center;
             padding: 20px 0;
             margin-top: 40px;
         }
 
         button {
-            background-color: #47cf82;
-            color: rgb(7, 6, 6);
+            background-color: #299357;
+            color: rgb(254, 254, 254);
             border: none;
             padding: 15px 30px;
             font-size: 1rem;
@@ -299,6 +299,46 @@
                 font-size: 1em; /* Уменьшаем размер шрифта */
                 margin: 0 5px; /* Уменьшаем отступы между ссылками */
             }
+            .logo-section {
+                flex-direction: column;
+            }
+
+            .logo-item {
+                margin-bottom: 20px;
+            }
+            body {
+        padding: 10px; /* Добавляем отступы по краям */
+    }
+
+    #calculator {
+        padding: 15px; /* Уменьшаем отступы внутри калькулятора */
+        border-radius: 20px; /* Уменьшаем радиус скругления */
+    }
+
+    .service img {
+        max-width: 100%; /* Убираем ограничение по ширине */
+        margin: 10px 0; /* Уменьшаем отступы */
+    }
+
+    .service h1, .service h2 {
+        font-size: 1.5em; /* Уменьшаем размер шрифта заголовков */
+        padding: 8px; /* Уменьшаем отступы */
+    }
+
+    .service p {
+        font-size: 1em; /* Уменьшаем размер шрифта текста */
+        padding: 10px; /* Уменьшаем отступы */
+    }
+
+    button {
+        width: 100%; /* Делаем кнопки на всю ширину */
+        padding: 10px 20px; /* Уменьшаем отступы */
+    }
+
+    #orderForm, #orderFormBottom {
+        max-width: 100%; /* Убираем ограничение по ширине */
+        padding: 15px; /* Уменьшаем отступы */
+    }
 }
     </style>
 </head>
@@ -331,19 +371,19 @@
 </div>
     <button onclick="toggleOrderForm('orderForm')">Заказать услугу</button>
     <div id="orderForm">
-        <form>
+        <form action="submit_order.php" method="post">
             <label for="name">Имя:</label>
             <input type="text" id="name" name="name" required><br>
             <label for="phone">Телефон:</label>
             <input type="text" id="phone" name="phone" required><br>
             <label for="service">Услуга:</label>
             <select id="service" name="service" required>
-                <option value="general">Уборка офисов</option>
-                <option value="daily">Уборка территории</option>
-                <option value="carpet">Высотно-промышленный клининг</option>
-                <option value="window">Спецуборка после ремонта или ЧП</option>
-                <option value="window">Аренда грязезащитных ковров</option>
-                <option value="kover">Дератизация и дезинфекция</option>
+                <option value="Уборка офисов">Уборка офисов</option>
+                <option value="Уборка территории">Уборка территории</option>
+                <option value="Высотно-промышленный клининг">Высотно-промышленный клининг</option>
+                <option value="Спецуборка после ремонта или ЧП">Спецуборка после ремонта или ЧП</option>
+                <option value="Спецуборка после ремонта или ЧП">Спецуборка после ремонта или ЧП</option>
+                <option value="Дератизация и дезинфекция">Дератизация и дезинфекция</option>
             </select><br>
             <input type="submit" value="Отправить">
         </form>
@@ -376,19 +416,19 @@
         </div>
         <button onclick="toggleOrderForm('orderFormBottom')">Заказать услугу</button>
         <div id="orderFormBottom">
-            <form>
-                <label for="nameBottom">Имя:</label>
-                <input type="text" id="nameBottom" name="name" required><br>
-                <label for="phoneBottom">Телефон:</label>
-                <input type="text" id="phoneBottom" name="phone" required><br>
-                <label for="serviceBottom">Услуга:</label>
-                <select id="serviceBottom" name="service" required>
-                    <option value="general">Уборка офисов</option>
-                    <option value="daily">Уборка территории</option>
-                    <option value="carpet">Высотно-промышленный клининг</option>
-                    <option value="window">Спецуборка после ремонта или ЧП</option>
-                    <option value="window">Аренда грязезащитных ковров</option>
-                    <option value="kover">Дератизация и дезинфекция</option>
+            <<form action="submit_order.php" method="post">
+                <label for="name">Имя:</label>
+                <input type="text" id="name" name="name" required><br>
+                <label for="phone">Телефон:</label>
+                <input type="text" id="phone" name="phone" required><br>
+                <label for="service">Услуга:</label>
+                <select id="service" name="service" required>
+                    <option value="Уборка офисов">Уборка офисов</option>
+                    <option value="Уборка территории">Уборка территории</option>
+                    <option value="Высотно-промышленный клининг">Высотно-промышленный клининг</option>
+                    <option value="Спецуборка после ремонта или ЧП">Спецуборка после ремонта или ЧП</option>
+                    <option value="Спецуборка после ремонта или ЧП">Спецуборка после ремонта или ЧП</option>
+                    <option value="Дератизация и дезинфекция">Дератизация и дезинфекция</option>
                 </select><br>
                 <input type="submit" value="Отправить">
             </form>
